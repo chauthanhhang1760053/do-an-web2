@@ -1,0 +1,132 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Đăng nhập </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<style>
+    body {
+        background-color: #eff5f7;
+    }
+
+    h1 {
+        text-align: center;
+        text-shadow: 2px 2px 10px #69640D;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 50px;
+
+    }
+
+    button:hover {
+        background-color: #B7A10D;
+        color: wheat;
+
+
+    }
+
+    button {
+        text-align: center;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 20px;
+
+        background-color: #1D809F;
+        border: 3px double #69640D;
+        width: 150px;
+        height: 60px;
+
+    }
+
+    .center1 {
+        margin: auto;
+        width: 50%;
+        padding: 15px;
+
+    }
+
+    .purple-square {
+
+        padding: 12px 28px;
+
+        border: 5px double #3A4411
+    }
+
+
+    .main-w3layouts-agileinfo {
+        width: 30%;
+        margin: 0 auto;
+        padding: 4em 2em;
+        background: rgba(255, 255, 255, 0.07);
+        -webkit-box-shadow: 0 6px 12px 0 rgb(37, 37, 37);
+        -moz-box-shadow: 0 6px 12px 0 rgb(37, 37, 37);
+        box-shadow: 0 6px 43px 0 rgba(0, 0, 0, 0.4);
+    }
+
+    .form-sub-w3 {
+        position: relative;
+        margin-bottom: 30px;
+
+
+    }
+
+    .form-sub-w3 input[type="text"],
+    input[type="password"] {
+
+        width: 95%;
+        padding: 15px 66px 15px 19px;
+        text-align: left;
+        font-family: "Courier New", Courier, monospace;
+        background-color: #E3EAC9;
+
+        border-left: 10px solid #1F201B;
+
+        font-size: 15px;
+        letter-spacing: 1.5px;
+
+        outline: 0;
+
+        -moz-box-shadow: 0 6px 12px 0 #1F201B;
+        box-shadow: 0 10px 15px 0 rgba(0, 0, 0, 0.4);
+
+    }
+
+    .wthree-form h4 {
+
+        font-size: 15px;
+        font-family: "Courier New", Courier, monospace;
+        font-weight: 300;
+        text-align: center;
+        margin-bottom: 1.5em;
+        letter-spacing: 3px;
+        text-shadow: 3px 3px 4px #000;
+    }
+</style>
+
+<body>
+    <div class="main-w3layouts-agileinfo">
+        <div class="wthree-form">
+
+            <h1 style="color: #1D809F;">ĐĂNG NHẬP NHÂN VIÊN</h1>
+            <i>
+                <h4 style="color: #145b70;">Fill out the form below to login</h4>
+            </i>
+            <form method="POST">
+                <div class="form-sub-w3">
+                    <input type="text" id="email" name="email" placeholder="Email nhân viên" required="">
+
+                </div>
+                <div class="form-sub-w3">
+                    <input type="password" id="password" name="password" placeholder="Password" required="">
+
+                    <div class="center1">
+                        <button class="purple-square" type="submit" class="btn btn-primary">Log in</button>
+                    </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
