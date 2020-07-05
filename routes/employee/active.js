@@ -2,6 +2,7 @@ module.exports = function index(req,res){
     req.session.views=(req.session.views || 0)+1;
     res.render('employee/active',{views: req.session.views});
 };
+<<<<<<< HEAD
 
 
 const { Router } = require('express');
@@ -17,3 +18,5 @@ router.get('/', function (req, res) {
 });
 
 module.exports = router;
+=======
+>>>>>>> origin/master

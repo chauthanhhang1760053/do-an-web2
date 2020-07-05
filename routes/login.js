@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const { Router } = require('express');
 const User = require('../services/user');
 const asyncHandler = require('express-async-handler');
@@ -19,3 +20,13 @@ router.post('/login', asyncHandler(async function postLogin(req, res){
 }));
 
 module.exports = router;
+=======
+
+const {Router}=require('express');
+const router=new Router();
+
+router.get('/', function getlogin(req,res){
+ res.render('login');
+});
+module.exports= router;
+>>>>>>> origin/master

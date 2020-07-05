@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const { Router } = require('express');
 const User = require('E:/KiCuoi/Web2/Do An/DoAnWeb/services/user');
 const asyncHandler = require('express-async-handler');
@@ -19,3 +20,9 @@ router.post('/employee', asyncHandler(async function postLogin(req, res){
 }));
 
 module.exports = router;
+=======
+module.exports = function index(req,res){
+    req.session.views=(req.session.views || 0)+1;
+    res.render('employee/index',{views: req.session.views});
+};
+>>>>>>> origin/master

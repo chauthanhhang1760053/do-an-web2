@@ -1,6 +1,7 @@
 const {Router}=require('express');
 const {body, validationResult}=require('express-validator');
 const asyncHandler=require('express-async-handler')
+<<<<<<< HEAD
 const bcrypt = require('bcrypt');
 const User = require('E:/KiCuoi/Web2/Do An/DoAnWeb/services/user');
 
@@ -26,3 +27,14 @@ router.post('/register', asyncHandler(async function postRegister(req, res){
 }));
 
 module.exports = router;
+=======
+const crypto=require('crypto');
+const router=new Router();
+
+router.get('/', function (req,res){
+ res.render('register');
+});
+
+module.exports= router;
+
+>>>>>>> origin/master
