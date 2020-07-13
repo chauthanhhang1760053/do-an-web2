@@ -1,8 +1,8 @@
-const User = require('../services/users')
+const User = require('../services/user');
 const asyncHandler = require('express-async-handler');
 
 module.exports = asyncHandler(async function auth(req, res, next) {
-    const userId = req.session.userId;
+    const userId = req.session.userId
     res.locals.currentUser = null;
     if (!userId) {
         return next();
@@ -11,7 +11,8 @@ module.exports = asyncHandler(async function auth(req, res, next) {
     if (!user) {
         return next();
     }
-    req.currentUser = user;
+    req.currentUser = user
     res.locals.currentUser = user;
     next();
-})
+});
+

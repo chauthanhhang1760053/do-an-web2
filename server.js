@@ -34,7 +34,6 @@ app.post('/login', require('./routes/login'));
 app.post('/employee', require('./routes/employee/employee'));
 app.post('/register', require('./routes/register'));
 
-
 db.sync().then(function(){
     app.listen(port);
     console.log(`Server is listening on ${port}`);

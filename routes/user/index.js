@@ -1,7 +1,5 @@
 const { Router } = require('express');
-
 const router = new Router();
-
 router.get('/', function (req, res) {
     //Nếu người dùng chưa đăng nhập thì redirect về trang đăng nhập cho người dùng
     if(!req.currentUser) {
@@ -11,3 +9,5 @@ router.get('/', function (req, res) {
 });
 
 module.exports = router;
+
+
