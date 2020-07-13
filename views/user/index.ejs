@@ -43,23 +43,22 @@
                        THÔNG TIN CÁ NHÂN                        
                     </h1>
                     <div class="subheading mb-5">
-<<<<<<< HEAD
-                      Hiển thị thông tin cá nhân user  
+                      <!-- Hiển thị thông tin cá nhân mà user đăng ký ở đây, cập nhật avt các kiểu-->
                       <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
-                        <strong>Họ Tên: <%= user.displayName %>   </strong><br>
+                        <strong> <%= user.displayName %> </strong><br>
                         <table class="table table-user-information">
                             <tbody>
                             <tr>
-                                <td>Email</td>
-                                <td> <%= user.email %></td>
+                                <td>Email:</td>
+                                <td> <%= user.email %> </td>
                             </tr>
                             <tr>
                                 <td>Registered since:</td>
-                                <td> <%= user.createdAt %></td>
+                                <td><%= user.createdAt %></td>
                             </tr>
                             <tr>
                                 <td>Phone Number</td>
-                                <td> <%= user.phoneNumber %></td>
+                                <td><%= user.phoneNumber %></td>
                             </tr>
                             <tr>
                                 <td>Warnings</td>
@@ -67,10 +66,7 @@
                             </tr>
                             </tbody>
                         </table>
-                    </div>           
-=======
-                      Hiển thị thông tin cá nhân mà user đăng ký ở đây, cập nhật avt các kiểu                  
->>>>>>> origin/master
+                    </div>
                     <div class="social-icons">
                         <a class="social-icon" href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a class="social-icon" href="#"><i class="fab fa-github"></i></a>

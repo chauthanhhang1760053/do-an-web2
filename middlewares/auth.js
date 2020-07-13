@@ -7,7 +7,6 @@ module.exports = asyncHandler(async function auth(req, res, next) {
     if (!userId) {
         return next();
     }
-
     const user = await User.findUserById(userId)
     if (!user) {
         return next();
@@ -16,3 +15,4 @@ module.exports = asyncHandler(async function auth(req, res, next) {
     res.locals.currentUser = user;
     next();
 });
+
