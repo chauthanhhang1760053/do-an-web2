@@ -28,7 +28,7 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Thông tin cá nhân</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#signup">Quản lý người dùng</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/employee/index">Logout</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/employee">Logout</a></li>
                     </ul>
                 </div>
             </div>
@@ -61,8 +61,8 @@
                     <div class="col-md-10 col-lg-8 mx-auto text-center">
                         <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
                         <h2 class="text-white mb-5">Tìm kiếm khách hàng</h2>
-                        <form class="form-inline d-flex">
-                            <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="inputEmail" type="email" placeholder="Nhập mã khách hàng" />
+                        <form method="POST" class="form-inline d-flex">
+                            <input class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0" id="userIdSearch" name="userIdSearch" placeholder="Nhập mã khách hàng" />
                             <button class="btn btn-primary mx-auto" type="submit">Tìm</button>
                         </form>
                     </div>

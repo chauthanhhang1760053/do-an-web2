@@ -4,7 +4,7 @@
 // };
 
 const {Router}=require('express');
-const User = require('E:/KiCuoi/Web2/Do An/DoAnWeb/services/users');
+const User = require('../../services/user');
 const asyncHandler = require('express-async-handler');
 
 
