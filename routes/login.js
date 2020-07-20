@@ -3,12 +3,11 @@ const User = require('../services/users');
 const asyncHandler = require('express-async-handler');
 
 const router = new Router();
-router.get('/', function getlogin(req, res) {
+router.get('/', asyncHandler(async function getlogin(req, res) {
     res.render('login');
-});
-module.exports = router;
+}));
 
-router.post('/login', asyncHandler(async function postLogin(req, res) {
+router.post('/', asyncHandler(async function postLogin(req, res) {
     const user = await User.findUserByEmail(req.body.email)
     //Không tìm thấy User thì load lại trang Login
     if (!user || !User.verifyPassword(req.body.password, user.password)) {

@@ -16,23 +16,24 @@ app.use(cookieSession({
     keys: ['12345'],
     maxAge: 24*60*60*1000, 
 }));
-
 //Midldeware
 app.use(require('./middlewares/auth'));
 
 //Routes
 app.use(express.static('public'));
 app.get('/',require('./routes/index'));
-app.post('/',require('./routes/index'));
-app.use('/login',require('./routes/login'));
-app.use('/register',require('./routes/register'));
+
+//Employee
 app.use('/employee',require('./routes/employee/employee'));
 app.use('/activity',require('./routes/employee/activity'));
-app.use('/user',require('./routes/user/index'));
+app.use('/xacthuc',require('./routes/employee/xacthuc'));
 
-app.post('/login', require('./routes/login'));
-app.post('/employee', require('./routes/employee/employee'));
-app.post('/register', require('./routes/register'));
+//User
+app.use('/login',require('./routes/login'));
+app.use('/register',require('./routes/register'));
+app.use('/user',require('./routes/user/index'));
+app.use('/active',require('./routes/user/active'));
+
 
 db.sync().then(function(){
     app.listen(port);
