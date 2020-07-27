@@ -7,7 +7,7 @@ module.exports = asyncHandler(async function auth(req, res, next) {
     if (!userId) {
         return next();
     }
-    const user = await User.findUserById(userId)
+    const user = await User.find_all_join_account(userId)
     if (!user) {
         return next();
     }

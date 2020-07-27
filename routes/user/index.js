@@ -5,6 +5,7 @@ router.get('/', function (req, res) {
     if(!req.currentUser) {
         res.redirect('login');
     }
+    console.log(req.currentUser);
     res.render('user/index', { user: req.currentUser });
 });
 

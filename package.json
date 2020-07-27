@@ -23,10 +23,12 @@
     "rss-parser": "^3.8.0",
     "sequelize": "^6.2.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "author": "NHHK <LapTrinhWeb2>",
   "license": "ISC"

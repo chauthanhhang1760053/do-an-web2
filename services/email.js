@@ -6,13 +6,13 @@ async function guikichhoat(to,subject, token) {
         port: 587,
         secure: false,
         auth: {
-            user: 'dien mail minh vao',
-            pass: 'pass mail minh',
+            user: 'nguyennhiscorpio0811@gmail.com',
+            pass: 'tranthithuong081199hailan',
         }
     });
     
     return transporter.sendMail({
-        from: 'user o tren',
+        from: 'nguyennhiscorpio0811@gmail.com',
         to,
         subject,
         text: 'http://localhost:3000/active/' + token,

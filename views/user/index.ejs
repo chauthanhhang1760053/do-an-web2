@@ -121,21 +121,28 @@
                                     <tbody>
                                     <tr>
                                         <td>Số tài khoản:</td>
-                                        <td> <%= user.email %> </td>
+                                        <td> <%= user.account.sotaikhoan %> </td>
                                     </tr>
                                     <tr>
                                         <td>Số tiền hiện có:</td>
-                                        <td><%= user.createdAt %></td>
+                                        <td><%= user.account.sotien %></td>
                                     </tr>
                                     <tr>
                                         <td>Đơn vị tiền tệ:</td>
-                                        <td><%= user.phoneNumber %></td>
+                                        <td><%= user.account.donvitiente %></td>
                                     </tr>
                                     <tr>
                                         <td>Tình trạng:</td>
-                                        <td><%= user.phoneNumber %></td>
-                                    </tr>
-                                   
+                                        <td><%= user.account.tinhtrang %></td>
+                                    </tr>    
+                                    <tr>
+                                        <td>Kích hoạt:</td>
+                                        <td><%= user.account.kichhoat %></td>
+                                    </tr> 
+                                    <tr>
+                                        <td>Ngày khởi tạo:</td>
+                                        <td><%= user.account.createdAt %></td>
+                                    </tr>                                
                                     </tbody>
                                 </table>
                             </div>

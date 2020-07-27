@@ -10,10 +10,11 @@ router.get('/', function getlogin(req,res){
 });
 
 
-router.post("/", asyncHandler(async function postLogin(req, res) {
+router.post("/", asyncHandler(async function postLoginnhanvien(req, res) {
     const user = await employee.find_email(req.body.email)
     //Không tìm thấy User thì load lại trang Login
     if (!user || !User.verifyPassword(req.body.password, user.password)) {
+        console.log("nhancho");
         return res.render('employee/employee');
     }
     req.session.userId = user.id

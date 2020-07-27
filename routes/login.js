@@ -16,9 +16,7 @@ router.post('/', asyncHandler(async function postLogin(req, res) {
     req.session.userId = user.id
     //Đăng nhập thành công thì redirect về trang dành cho User
     res.redirect('user');
-
-    console.log(res.session.userId);
-}));
+})); 
 
 module.exports = router;
 

@@ -2,12 +2,16 @@ const bcrypt = require('bcrypt');
 const db = require('./db');
 const Sequelize = require('sequelize');
 const Model = Sequelize.Model;
-const accountss =require('./account');
-
+const accountss =require('./account'); 
+ 
 class User extends Model {
     static async find_all_where_kichhoat()
     {
         return User.findAll({include:[{model:accountss,where:{kichhoat:false}}]});
+    } 
+    static async find_all_join_account(id)
+    {
+        return User.findByPk(id,{include:[{model:accountss}]});
     }
     static async findUserById(id){
         return User.findByPk(id);
@@ -22,7 +26,7 @@ class User extends Model {
     static async save_token_null(user)
     {
         user.token=null;
-        return user.save();
+        return user.save(); 
     }
 
     static async findUserByEmail(email){
@@ -43,7 +47,7 @@ class User extends Model {
     
     static addUser(user){
         return user.save();
-    }
+    } 
 
 }
 User.init({
