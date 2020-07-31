@@ -1,25 +1,25 @@
 const {Router}=require('express');
-const User = require('../../services/users');
 const asyncHandler = require('express-async-handler');
 const employee=require('../../services/employee');
-
 const router = new Router();
 
-router.get('/', function getlogin(req,res){
+router.get('/',  asyncHandler(async function (req,res){
     res.render('employee/employee');
-});
+}));
 
-
-router.post("/", asyncHandler(async function postLoginnhanvien(req, res) {
-    const user = await employee.find_email(req.body.email)
-    //Không tìm thấy User thì load lại trang Login
-    if (!user || !User.verifyPassword(req.body.password, user.password)) {
-        console.log("nhancho");
-        return res.render('employee/employee');
+router.post('/', asyncHandler(async function (req, res) {
+    try {
+    const users = await employee.find_email(req.body.email);
+    const checkpw = employee.verifyPassword(req.body.password,users.password);
+    if (!users || !checkpw) {
+        res.render('employee/employee');
     }
-    req.session.userId = user.id
-    //Đăng nhập thành công thì redirect về trang quản lí của nhân viên
-    res.redirect('activity');
+        req.session.employeemail = users.email;
+        res.redirect('/activity');
+    }catch (error) {
+        console.log(error);
+        res.status(500);
+    }
 }));
 
 module.exports = router;

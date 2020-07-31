@@ -78,5 +78,4 @@ User.init({
 
 User.hasOne(accountss);
 accountss.belongsTo(User);
-
 module.exports = User;

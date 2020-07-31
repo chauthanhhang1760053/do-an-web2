@@ -8,6 +8,13 @@ class Employee extends Model {
     {
         return Employee.findOne({where:{email:emails}});
     }
+    static hashPassword(password){
+        return bcrypt.hashSync(password, 10);
+    }
+
+    static verifyPassword(password, passwordHash){
+        return bcrypt.compareSync(password, passwordHash)
+    }
 }
 
 Employee.init({
@@ -29,4 +36,5 @@ Employee.init({
     sequelize: db,
     modelName: 'employee',
 })
+
 module.exports=Employee;

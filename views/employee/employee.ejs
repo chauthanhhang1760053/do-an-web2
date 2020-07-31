@@ -1,198 +1,147 @@
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Đăng nhập </title>
+    <title> Đăng nhập nhân viên</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet"href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <base href="/">
-
 </head>
 <style>
-  body {
+    body {   
+        background-image: url(5.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    } 
    
-     background-image: url(bg.jpg);
-     background-size: cover;
+    .btn {
+        background-color:#ecb807;
+        font-family: "Georgia";
+        font-size: 19px; 
+    } 
  
- 
-   background-repeat: no-repeat;
- 
-   } 
+    .btn-3:hover {
+        border: 1px solid;
+        box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+        outline-color: rgba(255, 255, 255, 0);
+        outline-offset: 15px;
+        text-shadow: 1px 1px 2px #427388; 
+    }
    
-     .btn-3 {
-         background-color:#ecb807;
-   border: 0 solid;
-   box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
-   outline: 1px solid;
-   outline-color: rgba(0, 0, 0, 0.5);
-   outline-offset: 0px;
-   text-shadow: none;
-   transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
-   font-family: "Georgia";
-   font-size: 20px;
-   width: 200px;
-         height: 60px;
-         color: #000;
-         
- 
- } 
- 
- .btn-3:hover {
-   border: 1px solid;
-   box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-   outline-color: rgba(255, 255, 255, 0);
-   outline-offset: 15px;
-   text-shadow: 1px 1px 2px #427388; 
- }
-   
-     .center1 {
-       margin: auto;
-       width: 50%;
-       padding: 15px;
- 
-     }
+    .center1 {
+        margin: auto;
+        width: 50%;
+        padding: 15px;
+    }
+
    .purple-square {
-         padding: 12px 28px;
+        padding: 12px 28px; 
+        border: 5px double #3b464e;      
+    }    
  
-         border: 5px double #3b464e
-      
-      
-     }
-    
+    .main-w3layouts-agileinfo {
+        width: 30%;
+        margin: 0 auto;
+        padding: 3em 2em;
+        background: rgba(255, 255, 255, 0.07);        
+        box-shadow: 0 6px 553px 0 rgba(33, 73, 83, 0.4);    
+        border: 5px ridge #5b6c79
+    }
  
-     .main-w3layouts-agileinfo {
-         width: 35%;
-         margin: 0 auto;
-         padding: 4em 2em;
-         background: rgba(255, 255, 255, 0.07);
-         
-         box-shadow: 0 6px 553px 0 rgba(33, 73, 83, 0.4);
-      
-         border: 5px ridge #5b6c79
- }
- 
- .form-sub-w3{
-   position:relative;
-     margin-bottom: 15px;
-     text-align: center; 
-     
- }
- .form-sub-w3 
+    .form-sub-w3{
+        position:relative;
+        margin-bottom: 15px;
+        text-align: center; 
+    }
+    .form-sub-w3 
      input[type="text"],
-     input[type="password"] {
- 
-         width: 75%;
-         padding: 15px 66px 15px 19px;
-         text-align: left ;
-         font-style: italic;
-         font-family: Georgia;
-         
-         background-color: white;
- 
-         border-left: 7px solid #3b464e;
-        
- 
-         font-size: 14px;
-         letter-spacing: 1.0px;
-         outline: 0;
- 
-         -moz-box-shadow: 0 6px 12px 0 #3b464e;
-        
- 
-     }
-     h4 {
-     
-         font-size: 15px;
-         font-family: Georgia;    
-         /* font-family: Courier New, monospace;     */
-         font-weight: 300;
-         text-align: center;
-         margin-bottom: 1.5em;
-         letter-spacing: 3px;
-      
- }
- .wthree-form  {
-     
-     
-         font-family: Georgia;        
-         
-         text-align: center;
-         margin-bottom: 1.5em;
-         letter-spacing: 3px;
-         /* text-shadow: 3px 3px 4px rgb(11, 99, 121); */
- }
- .header{
-     background-color: #1D809F;
-     min-height: 80px;
- 
- }
- .x{
-     font-size: 70px;
-     text-align: center;
-     font-family: tahoma;  
-     color: azure;
- 
-     text-shadow: 10px 5px 3px rgb(11, 99, 121);
- }
- .y {
-     font-size: 20px;
-     font-family: Georgia;    
-         font-weight: 300;
-         text-align: center;
-         margin-bottom: 0.5em;
-         letter-spacing: 3px;
-         text-shadow: 3px 3px 4px rgb(11, 99, 121);
-         color:azure;
- 
- }
- h1{
-         font-size: 50px;
-         text-align: center;
-         font-family: verdana;
-         color:white;
-         text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.904);
-         /* text-shadow: 1px 1px 4px rgb(11, 99, 121); */
-     }
-     .bg{
-         background-color:white;
-         opacity: 0.9;
- 
-     }
-   
- </style>
+     input[type="password"] { 
+        width: 75%;
+        padding: 15px 66px 15px 19px;
+        text-align: left ;
+        font-style: italic;
+        font-family: Georgia;         
+        background-color: white; 
+        border-left: 4px solid #3b464e;
+        border-top: 1px solid #3b464e;
+        border-right: 1px solid #3b464e;
+        border-bottom: 1px solid #3b464e; 
+        font-size: 14px;
+        letter-spacing: 1.0px;
+        outline: 0; 
+        -moz-box-shadow: 0 6px 12px 0 #3b464e;       
+    }
+    h4 {    
+        font-size: 15px;
+        font-family: Georgia;    
+        /* font-family: Courier New, monospace;     */
+        font-weight: 300;
+        text-align: center;
+        margin-bottom: 1.5em;
+        letter-spacing: 3px;    
+    }
+    .wthree-form  {   
+        font-family: Georgia;    
+        text-align: center;
+        margin-bottom: 1.5em;
+        letter-spacing: 3px;
+        /* text-shadow: 3px 3px 4px rgb(11, 99, 121); */
+    }
+
+    .x{
+        font-size: 70px;
+        text-align: center;
+        font-family: tahoma;  
+        color: azure;    
+        text-shadow: 10px 5px 3px rgb(11, 99, 121);
+    }
+    
+    .y {
+        font-size: 20px;
+        font-family: Georgia;    
+        font-weight: 300;
+        text-align: center;
+        margin-bottom: 0.5em;
+        letter-spacing: 3px;
+        text-shadow: 3px 3px 4px rgb(11, 99, 121);
+        color:azure;    
+    }
+
+    h1 {
+        font-size: 50px;
+        text-align: center;
+        font-family: verdana;
+        color:white;
+        text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.904);
+        /* text-shadow: 1px 1px 4px rgb(11, 99, 121); */
+    }
+    .bg {
+        background-color:white;
+        opacity: 0.9;
+    }   
+</style>
 <body>
-    <body>   
-      <div class="container-fluid">
-        <br>
-        <br>
-        <br>
-       
-         
+    <div class="container-fluid">
+    <br>
+    <br>
+    <br>      
     <div class="main-w3layouts-agileinfo">
         <div class="wthree-form">
-           <h1 >ĐĂNG NHẬP </h1>
-           <h1> NHÂN VIÊN</h1>
-            <i>
-                <h4 style="color: rgba(0, 0, 0, 0.904);">Fill out the form below to login</h4>
-            </i>
-            <form method="POST">
-               
+            <h1 >ĐĂNG NHẬP </h1>
+            <h1> NHÂN VIÊN</h1>
+            <i><h4 style="color: rgba(0, 0, 0, 0.904);">Fill out the form below to login</h4></i>
+            <form method="POST">               
                 <div class="form-sub-w3"> 
-                 <input  type="text" id="email" name="email" class="glyphicon glyphicon-envelope" placeholder="Email nhân viên" required=""  >
-
+                    <input  type="text" id="email" name="email" class="glyphicon glyphicon-envelope" placeholder="Email nhân viên" required=""  >
                 </div>
                 <div class="form-sub-w3">
                     <input type="password" id="password" name="password" placeholder="Password" required="">
-
-                    <div class="center1">
-                        <button type="submit" class="btn btn-3">Log in</button>
-                    </div>
-
+                    <div class="center1"><button type="submit" class="btn  btn-lg">Đăng nhập</button>
+                </div>
             </form>
         </div>
     </div>
 </body>
-
 </html>
