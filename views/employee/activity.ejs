@@ -48,7 +48,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
-                        <h2 class="text-white mb-4">Thông tin cá nhân của nhân viên</h2>                        
+                        <h4 class="text-white mb-4">THÔNG TIN CÁ NHÂN CỦA NHÂN VIÊN</h4>
+                        <h4 class="text-white mb-4">Id: <%= user.id %> </h4>
+                        <h4 class="text-white mb-4">Tên hiển thi: <%= user.displayName %></h4>
+                        <h4 class="text-white mb-4">Ngày khởi tạo: <%= user.createdAt.toDateString() %></h4>
+                                            
                     </div>
                 </div>
             </div>
