@@ -27,6 +27,7 @@ app.get('/',require('./routes/index'));
 app.use('/employee',require('./routes/employee/employee'));
 app.use('/activity',require('./routes/employee/activity'));
 app.use('/xacthuc',require('./routes/employee/xacthuc'));
+app.use('/employee/logout', require('./routes/employee/logout'));
 
 //User
 app.use('/login',require('./routes/login'));
