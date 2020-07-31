@@ -17,7 +17,7 @@ router.post("/", asyncHandler(async function postLoginnhanvien(req, res) {
         console.log("nhancho");
         return res.render('employee/employee');
     }
-    req.session.employeeId = employee.id;
+    req.session.userId = user.id
     //Đăng nhập thành công thì redirect về trang quản lí của nhân viên
     res.redirect('activity');
 }));

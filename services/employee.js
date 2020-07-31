@@ -8,10 +8,6 @@ class Employee extends Model {
     {
         return Employee.findOne({where:{email:emails}});
     }
-
-    static async findEmployeeById(id) {
-        return Employee.findByPk(id);
-    }
 }
 
 Employee.init({
