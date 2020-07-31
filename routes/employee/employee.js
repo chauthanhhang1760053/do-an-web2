@@ -20,6 +20,12 @@ router.post('/', asyncHandler(async function (req, res) {
         console.log(error);
         res.status(500);
     }
+<<<<<<< HEAD
+=======
+    req.session.employeeId = employee.id;
+    //Đăng nhập thành công thì redirect về trang quản lí của nhân viên
+    res.redirect('activity');
+>>>>>>> e7d397ce0640916416ff4bb0951e8ce95e9ab952
 }));
 
 module.exports = router;

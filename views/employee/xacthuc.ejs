@@ -1,8 +1,10 @@
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Kích hoạt tài khoản </title>
+  <link rel="icon" type="image/x-icon" href="e/assets/img/favicon.ico"/>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
@@ -12,6 +14,7 @@
     background-attachment: fixed;
   }
 
+<<<<<<< HEAD
   .outset {border-style: outset;}
 
   h1 {   
@@ -24,22 +27,58 @@
   }
 
   h4 {
+=======
+    background-color: white;
+
+    background-attachment: fixed;
+
+
+  }
+
+  .outset {
+    border-style: outset;
+  }
+
+  h1 {
+
+    font-size: 35px;
+    text-align: center;
+    font-family: verdana;
+    color: rgba(3, 0, 0, 0.616);
+    text-shadow: 2px 2px 3px rgb(112, 116, 117);
+    /* text-shadow: 1px 1px 4px rgb(11, 99, 121); */
+  }
+
+  h4 {
+
+>>>>>>> e7d397ce0640916416ff4bb0951e8ce95e9ab952
     font-size: 25px;
-    font-family: Georgia;    
+    font-family: Georgia;
     /* font-family: Courier New, monospace;     */
     font-weight: 300;
     text-align: center;
     margin-bottom: 1.5em;
     letter-spacing: 3px;
+<<<<<<< HEAD
   }
 
   th {
     font-size: 15px;
     font-family: arial;    
+=======
+
+  }
+
+  th {
+
+    font-size: 17px;
+    font-family: arial;
+>>>>>>> e7d397ce0640916416ff4bb0951e8ce95e9ab952
     /* font-family: Courier New, monospace;     */
     font-weight: 300;
     text-align: center;
     margin-bottom: 1.5em;
+<<<<<<< HEAD
   }
 
   table, th, td {
@@ -50,6 +89,12 @@
   table {
     border-collapse:collapse;
   }
+=======
+
+
+  }
+</style>
+>>>>>>> e7d397ce0640916416ff4bb0951e8ce95e9ab952
 
   .btn {
     background-color:#4682B4;
@@ -58,6 +103,7 @@
 </style>
 <body>
   <div class="row">
+<<<<<<< HEAD
     <div class="col">     
     </div>
   </div>
@@ -106,5 +152,70 @@
 </div>
   </section>
     <hr class="m-0" />    
+=======
+    <div class="col">
+
+    </div>
+  </div>
+  <!-- <%
+    if(thongbao!=null)
+    {      
+      if(thongbao=="1")
+      {
+        %><h4>Kích hoạt tài khoản người dùng thành công</h4><%
+      }
+      else
+      {
+        %><h4>Kích hoạt tài khoản người dùng thất bại</h4><%
+      }
+      
+    }
+    
+  %> -->
+  <p></p>
+  <p></p>
+  <p></p>
+  <br>
+
+  <h1 class="outset">DANH SÁCH TÀI KHOẢN NGƯỜI DÙNG ĐANG CHỜ ĐƯỢC KÍCH HOẠT</h1>
+  <p></p>
+  <p></p>
+  <p></p>
+  <br>
+  <table class="table table-responsive-sm table-striped Border" class="container">
+    <thead style="background-color: #1D809F">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Email</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Số điện thoại</th>
+        <th scope="col">Trạng thái</th>
+        <th scope="col">Chờ duyệt</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cht.forEach(function(i){
+          %>
+      <tr>
+        <td><%=i.id%></td>
+        <td><%=i.email%></td>
+        <td><%=i.displayName%></td>
+        <td><%=i.phoneNumber%></td>
+        <td><%=i.account.kichhoat%></td>
+        <td>
+          <form method="POST">
+            <button type="submit" name="btn_account_id" value="<%=i.account.id%>" class="btn btn-success">Kích
+              hoạt</button>
+          </form>
+        </td>
+
+      </tr>
+      <%
+        })
+        %>
+    </tbody>
+  </table>
+>>>>>>> e7d397ce0640916416ff4bb0951e8ce95e9ab952
 </body>
+
 </html>

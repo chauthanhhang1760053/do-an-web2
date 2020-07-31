@@ -8,12 +8,18 @@ class Employee extends Model {
     {
         return Employee.findOne({where:{email:emails}});
     }
+<<<<<<< HEAD
     static hashPassword(password){
         return bcrypt.hashSync(password, 10);
     }
 
     static verifyPassword(password, passwordHash){
         return bcrypt.compareSync(password, passwordHash)
+=======
+
+    static async findEmployeeById(id) {
+        return Employee.findByPk(id);
+>>>>>>> e7d397ce0640916416ff4bb0951e8ce95e9ab952
     }
 }
 

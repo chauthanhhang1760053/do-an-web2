@@ -19,7 +19,11 @@ app.use(cookieSession({
 
 //Midldeware
 app.use(require('./middlewares/auth'));
+<<<<<<< HEAD
 app.use(require('./middlewares/employee'));
+=======
+app.use(require('./middlewares/employeeAuth'));
+>>>>>>> e7d397ce0640916416ff4bb0951e8ce95e9ab952
 
 //Routes
 app.use(express.static('public'));
@@ -29,7 +33,12 @@ app.get('/',require('./routes/index'));
 app.use('/employee',require('./routes/employee/employee'));
 app.use('/activity',require('./routes/employee/activity'));
 app.use('/xacthuc',require('./routes/employee/xacthuc'));
+<<<<<<< HEAD
 app.use('/naptien',require('./routes/employee/naptien'));
+=======
+app.use('/employee/logout', require('./routes/employee/logout'));
+app.use('/activity/listUsers', require('./routes/employee/listUsers'));
+>>>>>>> e7d397ce0640916416ff4bb0951e8ce95e9ab952
 
 //User
 app.use('/login',require('./routes/login'));
