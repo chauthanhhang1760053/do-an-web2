@@ -6,7 +6,7 @@ const router = new Router();
 
 router.get('/', function index(req,res){
     //Nếu nhân viên chưa đăng nhập thì redirect về trang đăng nhập cho nhân viên
-    if(!req.currentUser) {
+    if(!req.currentEmployee) {
         res.redirect('employee');
     }    
     res.render('employee/activity', { user: req.currentUser });
