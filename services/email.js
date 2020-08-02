@@ -4,7 +4,7 @@ async function guikichhoat(to,subject, token) {
     const transporter=nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 587,
-        secure: false,
+        secure: false, 
         auth: {
             user: 'mail mình',
             pass: 'pass mail mình',
