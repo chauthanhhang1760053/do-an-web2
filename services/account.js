@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const db = require('./db');
 const Sequelize = require('sequelize');
+const thanhtoan = require('./thanhtoan');
 const Model = Sequelize.Model;
 
 class account extends Model {
@@ -60,5 +61,6 @@ account.init({
     modelName: 'account',
 })
 
-
+account.hasOne(thanhtoan);
+thanhtoan.belongsTo(account);
 module.exports = account;
