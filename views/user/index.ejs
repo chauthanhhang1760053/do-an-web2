@@ -86,7 +86,7 @@
                         </tr>
                         <tr>
                             <td>Registered since:</td>
-                            <td><%= user.createdAt %></td>
+                            <td><%= user.createdAt.toDateString() %></td>
                         </tr>
                         <tr>
                             <td>Phone Number</td>
@@ -136,7 +136,7 @@
                                 </tr> 
                                 <tr>
                                     <td>Ngày khởi tạo:</td>
-                                    <td><%= user.account.createdAt %></td>
+                                    <td><%= user.account.createdAt.toDateString() %></td>
                                 </tr>                                
                                 </tbody>
                             </table>

@@ -9,6 +9,10 @@ class User extends Model {
     {
         return User.findAll({include:[{model:accountss,where:{kichhoat:false}}]});
     } 
+    static async findAllAccounts()
+    {
+        return User.findAll({include:[{model:accountss}]});
+    } 
     static async find_all_join_account(id)
     {
         return User.findByPk(id,{include:[{model:accountss}]});

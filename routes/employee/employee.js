@@ -20,7 +20,7 @@ router.post('/', asyncHandler(async function (req, res) {
         console.log(error);
         res.status(500);
     }
-    req.session.userId = user.icon-disc
+    req.session.employeemail = employee.employeemail;
     //Đăng nhập thành công thì redirect về trang quản lí của nhân viên
     res.redirect('activity');
 }));

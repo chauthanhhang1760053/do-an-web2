@@ -19,6 +19,7 @@ app.use(cookieSession({
 
 //Midldeware
 app.use(require('./middlewares/auth'));
+app.use(require('./middlewares/employee'));
 //Routes
 app.use(express.static('public'));
 app.get('/',require('./routes/index')); 
@@ -29,7 +30,8 @@ app.use('/activity',require('./routes/employee/activity'));
 app.use('/xacthuc',require('./routes/employee/xacthuc'));
 app.use('/naptien',require('./routes/employee/naptien'));
 app.use('/employee/logout', require('./routes/employee/logout'));
-app.use('/activity/listUsers', require('./routes/employee/listUsers'));
+app.use('/listUsers', require('./routes/employee/listUsers'));
+
 //User
 app.use('/login',require('./routes/login'));
 app.use('/register',require('./routes/register'));
