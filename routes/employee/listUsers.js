@@ -5,6 +5,8 @@ const asyncHandler=require('express-async-handler');
 
 const router = new Router();
 
+
+
 router.get('/', asyncHandler(async function (req, res) {
     if(!req.currentEmployee) {
         res.redirect('/employee');

@@ -1,5 +1,6 @@
 const User = require('../services/users');
 const asyncHandler = require('express-async-handler');
+
 module.exports = asyncHandler(async function (req, res, next) {
     const userId = req.session.userId
     res.locals.currentUser = null;
@@ -14,3 +15,4 @@ module.exports = asyncHandler(async function (req, res, next) {
     res.locals.currentUser = user;
     next();
 });
+
