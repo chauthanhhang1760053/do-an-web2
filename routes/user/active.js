@@ -8,7 +8,7 @@ const router = new Router();
 
 router.get('/:token',  asyncHandler (async function (req, res) {
     const {token}=req.params;
-    if(token==1)
+    if(token==1) 
     {
         res.render('user/active',{thongbao:"thanh cong"})
     }

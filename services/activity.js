@@ -5,3 +5,4 @@ module.exports = function (req,res){
     const employee=req.currentEmployee;
     res.render('employee/activity', { employee: employee });    
 };
+ 
