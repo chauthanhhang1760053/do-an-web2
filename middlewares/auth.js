@@ -8,7 +8,7 @@ module.exports = asyncHandler(async function (req, res, next) {
         return next();
     }
     const user = await User.find_all_join_account(userId)
-    if (!user) {
+    if (!user) { 
         return next();
     }
     req.currentUser = user

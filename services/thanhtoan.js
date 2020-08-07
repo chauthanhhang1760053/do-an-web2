@@ -9,7 +9,7 @@ class thanhtoan extends Model {
         return thanhtoan.create({
             tienbitru: sotiennap,
             mataikhoan:matk,
-            loaitaikhoan:loaitk,
+            loaitaikhoan:loaitk, 
             accountId: acc_id,
             tienhienco: tientruoc,
             tienconlai: tiensau,

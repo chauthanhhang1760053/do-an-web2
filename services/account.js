@@ -11,7 +11,7 @@ class account extends Model {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
     static async find_id(id)
-    {
+    { 
         return account.findByPk(id);
     }
     static async findSoTaiKhoan(sotaikhoans){

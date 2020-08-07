@@ -4,7 +4,7 @@ const asyncHandler = require('express-async-handler');
 const accountss=require('../../services/account');
 const router = new Router();
 router.get('/', asyncHandler(async function (req,res){
-    if(!req.currentEmployee) {
+    if(!req.currentEmployee)  {
         res.redirect('employee');
     }   
     const cht= await thanhtoan.find_All()

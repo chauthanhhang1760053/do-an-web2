@@ -8,7 +8,7 @@ class Employee extends Model {
     {
         return Employee.findOne({where:{email:emails}});
     }
-    static hashPassword(password){
+    static hashPassword(password){ 
         return bcrypt.hashSync(password, 10);
     }
 
