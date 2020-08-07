@@ -1,15 +1,17 @@
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Thông Báo </title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link href="cover.css" rel="stylesheet">
 </head>
 <style>
   body {
     height: 100%;
-    background-color:rgb(185, 185, 185);
+    background-color: rgb(185, 185, 185);
   }
 
   body {
@@ -29,14 +31,15 @@
   }
 
   .center {
-    margin: auto;  
+    margin: auto;
     border: 5px double #3A4411;
     width: 150px;
     height: 150px;
     letter-spacing: 2px;
     padding: 20px;
   }
-/*
+
+  /*
  * Header
  */
   .masthead {
@@ -60,7 +63,7 @@
     border-bottom-color: rgba(255, 255, 255, .25);
   }
 
-  .nav-masthead .nav-link + .nav-link {
+  .nav-masthead .nav-link+.nav-link {
     margin-left: 1rem;
   }
 
@@ -73,35 +76,38 @@
   .btn-secondary:hover,
   .btn-secondary:focus {
     color: #333;
-    text-shadow: none; 
+    text-shadow: none;
     background-color: #fff;
     border: .05rem solid #fff;
   }
 
-/*
+  /*
  * Cover
  */
   .cover {
     padding: 0 1.5rem;
   }
+
   .cover .btn-lg {
     padding: .75rem 1.25rem;
     font-weight: 700;
   }
-  h1{       
+
+  h1 {
     font-size: 50px;
     text-align: center;
     font-family: verdana;
-    color:rgba(3, 0, 0, 0.616);
+    color: rgba(3, 0, 0, 0.616);
     text-shadow: 2px 2px 3px rgb(112, 116, 117);
     /* text-shadow: 1px 1px 4px rgb(11, 99, 121); */
   }
-  
-  p{
-    color:rgba(3, 0, 0, 0.616);
+
+  p {
+    color: rgba(3, 0, 0, 0.616);
   }
 </style>
-<body class="text-center" >
+
+<body class="text-center">
   <div class="p-3 flex-column">
     <header class="masthead mb-auto">
       <div class="inner">
@@ -112,44 +118,43 @@
           <a class="nav-link" href="/">Contact</a>
         </nav>
       </div>
-    </header>      
+    </header>
     <br>
     <br>
     <br>
-        <%
+    <%
         if(thongbao=="thanh cong")
-        {%>      
-          <p class="lead">Cảm ơn quý khách đã xác nhận email</p> 
-          <p class="lead">Vui lòng chờ ít phút trong khi NHHKBank kích hoạt tài khoản<p> 
-          <p class="lead"> NHHK Bank xin chân thành cảm ơn </p>
-          <p class="lead">
-            <a href="#" class="btn btn-lg btn-secondary">Đã hiểu</a>            
-          </p>            
-        <%}
+        {%>
+    <p class="lead">Cảm ơn quý khách đã xác nhận email</p>
+    <p class="lead">Vui lòng chờ ít phút trong khi NHHKBank kích hoạt tài khoản
+    <p>
+    <p class="lead"> NHHK Bank xin chân thành cảm ơn </p>
+    <p class="lead">
+      <a href="#" class="btn btn-lg btn-secondary">Đã hiểu</a>
+    </p>
+    <%}
         else
         {%>
-            <p class="lead">Xác nhận email lỗi</p>
-            <p class="lead">Xin quý khách vui lòng kiểm tra và thử lại</p> 
-            <p class="lead">NHHK Bank xin chân thành cảm ơn</p> 
-            <p class="lead">
-              <a href="/" class="btn btn-lg btn-secondary">Đã hiểu</a>
-            </p>
-        <% } %>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>  
-        <p class="text-muted small mb-0">L a p T r i n h W e b 2  &copy; O u r W e b s i t e 2020</p> 
-  </div>   
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-<script src="../../assets/js/vendor/popper.min.js"></script>
-<script src="../../dist/js/bootstrap.min.js"></script>
+    <p class="lead">Xác nhận email lỗi</p>
+    <p class="lead">Xin quý khách vui lòng kiểm tra và thử lại</p>
+    <p class="lead">NHHK Bank xin chân thành cảm ơn</p>
+    <p class="lead">
+      <a href="/" class="btn btn-lg btn-secondary">Đã hiểu</a>
+    </p>
+    <% } %>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p class="text-muted small mb-0">L a p T r i n h W e b 2 &copy; O u r W e b s i t e 2020</p>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+  <script src="../../assets/js/vendor/popper.min.js"></script>
+  <script src="../../dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>
-
-
-
-
-    
