@@ -5,7 +5,7 @@ const asyncHandler=require('express-async-handler');
 const crypto = require('crypto');
 const router = new Router();
 
-router.get('/', asyncHandler(async function (req, res) {
+router.get('/', asyncHandler(async function (req, res) { 
     if(!req.currentUser) {
         res.redirect('login');
     }

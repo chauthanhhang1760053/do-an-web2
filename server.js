@@ -20,6 +20,7 @@ app.use(cookieSession({
 //Midldeware
 app.use(require('./middlewares/auth'));
 app.use(require('./middlewares/employee'));
+
 //Routes
 app.use(express.static('public'));
 app.get('/',require('./routes/index')); 

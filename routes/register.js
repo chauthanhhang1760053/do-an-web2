@@ -28,7 +28,7 @@ router.post('/', asyncHandler(async function postLogin(req, res) {
     {
         await email.guikichhoat(_email,"NHHK Bank kích hoạt email",_token);
         res.redirect('/login');
-    }   
+    }    
 }));
 
 module.exports = router;
