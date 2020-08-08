@@ -7,12 +7,13 @@ const router = new Router();
 
 router.get('/', asyncHandler(async function (req, res) { 
     if(!req.currentUser) {
-        res.redirect('login');
+        res.redirect('login'); 
     }
     console.log(req.currentUser);
+    
     const lichsu = await thanhtoan.find_lichsu(req.currentUser.account.id);
     if(req.currentUser.account.kichhoat==false)
-    {
+    {  
         const thongbao=1;
         res.render('user/index', { user: req.currentUser,thongbao,lichsu });
     }
@@ -22,7 +23,7 @@ router.get('/', asyncHandler(async function (req, res) {
         const mabaomat = crypto.randomBytes(3).toString('hex').toUpperCase();
         res.render('user/index', { user: req.currentUser,thongbao,lichsu,mabaomat  });
     }  
- })); 
+ }));  
 
 router.post("/", asyncHandler(async function (req, res) {
    try {
