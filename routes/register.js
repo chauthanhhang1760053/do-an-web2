@@ -9,8 +9,7 @@ const router = new Router();
  
 router.get('/', asyncHandler(async function (req, res) {
     res.render('register');
-}));
-  
+}));  
 router.post('/', asyncHandler(async function postLogin(req, res) {    
     let hash = bcrypt.hashSync(req.body.password, 10);
     _email = req.body.email;
@@ -30,7 +29,6 @@ router.post('/', asyncHandler(async function postLogin(req, res) {
         res.redirect('/login');
     }    
 }));
-
 module.exports = router;
 
 

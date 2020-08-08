@@ -10,7 +10,7 @@ router.get('/', asyncHandler(async function (req, res) {
         res.redirect('login'); 
     }
     console.log(req.currentUser);
-    
+
     const lichsu = await thanhtoan.find_lichsu(req.currentUser.account.id);
     if(req.currentUser.account.kichhoat==false)
     {  
@@ -24,7 +24,6 @@ router.get('/', asyncHandler(async function (req, res) {
         res.render('user/index', { user: req.currentUser,thongbao,lichsu,mabaomat  });
     }  
  }));  
-
 router.post("/", asyncHandler(async function (req, res) {
    try {
     if(req.body.btnnap== ''){

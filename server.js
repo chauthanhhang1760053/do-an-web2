@@ -25,6 +25,7 @@ app.use(require('./middlewares/employee'));
 app.use(express.static('public'));
 app.get('/',require('./routes/index')); 
 
+
 //Employee
 app.use('/employee',require('./routes/employee/employee'));
 app.use('/activity',require('./routes/employee/activity'));
