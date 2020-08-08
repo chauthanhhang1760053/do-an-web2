@@ -6,7 +6,7 @@ const email= require('../services/email');
 const account=require('../services/account');
 const User = require('../services/users');
 const router = new Router();
-
+ 
 router.get('/', asyncHandler(async function (req, res) {
     res.render('register');
 }));

@@ -7,8 +7,8 @@ class Employee extends Model {
     static async find_email(emails)
     {
         return Employee.findOne({where:{email:emails}});
-    }
-    static hashPassword(password){ 
+    } 
+    static hashPassword(password){  
         return bcrypt.hashSync(password, 10);
     }
 
