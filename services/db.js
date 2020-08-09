@@ -1,8 +1,5 @@
-const Sequelize=require('sequelize');
+const Sequelize = require('sequelize');
+const connectionString = process.env.DATABASE_URL;
+const db = new Sequelize(connectionString);
 
-const connectionString= process.env.DATABASE_URL || 'postgres://postgres:postgres@localhost:5432/doanweb';
-
-const db=new Sequelize(connectionString);
-
-module.exports=db;
- 
+module.exports = db;
