@@ -8,7 +8,7 @@ const router = new Router();
 router.get('/', asyncHandler(async function (req, res) { 
     if(!req.currentUser) {
         res.redirect('login'); 
-    }
+    } 
     console.log(req.currentUser);
 
     const lichsu = await thanhtoan.find_lichsu(req.currentUser.account.id);

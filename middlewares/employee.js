@@ -12,5 +12,5 @@ module.exports = asyncHandler(async function (req, res, next) {
     }
     req.currentEmployee = Employee;
     res.locals.currentEmployee = Employee;
-    next();
+    next(); 
 });

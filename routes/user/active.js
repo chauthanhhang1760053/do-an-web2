@@ -5,7 +5,7 @@ const asyncHandler = require('express-async-handler');
 const user=require('../../services/users'); 
 const { validationResult } = require('express-validator');
 const router = new Router();
-
+ 
 router.get('/:token',  asyncHandler (async function (req, res) {
     const {token}=req.params;
     if(token==1) 
