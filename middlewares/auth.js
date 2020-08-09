@@ -6,7 +6,7 @@ module.exports = asyncHandler(async function (req, res, next) {
     res.locals.currentUser = null;
     if (!userId) {
         return next();
-    }
+    }  
     const user = await User.find_all_join_account(userId)
     if (!user) { 
         return next();

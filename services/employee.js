@@ -6,7 +6,7 @@ const Model = Sequelize.Model;
 class Employee extends Model {
     static async find_email(emails)
     {
-        return Employee.findOne({where:{email:emails}});
+        return Employee.findOne({where:{email:emails}}); 
     } 
     static hashPassword(password){  
         return bcrypt.hashSync(password, 10);
@@ -16,6 +16,7 @@ class Employee extends Model {
         return bcrypt.compareSync(password, passwordHash)
     }
 }
+
 
 Employee.init({
     email: {

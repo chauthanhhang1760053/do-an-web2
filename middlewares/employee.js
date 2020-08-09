@@ -5,12 +5,12 @@ module.exports = asyncHandler(async function (req, res, next) {
     res.locals.currentUser = null;
     if (!employeemail) {
         return next();
-    }
+    } 
     const Employee = await employee.find_email(employeemail)
     if (!employeemail) {
         return next();
     }
     req.currentEmployee = Employee;
     res.locals.currentEmployee = Employee;
-    next();
+    next(); 
 });
