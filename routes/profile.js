@@ -1,8 +1,8 @@
 const router = require('express').Router();
 
 router.get('/', function (req, res) {
-
-    return res.render('register');
+    if (!req.session.currentUser) return res.redirect('/login')
+    return res.render('profile');
 })
 
 module.exports = router;

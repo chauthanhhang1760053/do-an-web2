@@ -1,4 +1,7 @@
-module.exports = function index(req, res) {
-    req.session.views = (req.session.views || 0) + 1;
-    res.render('index', { views: req.session.views });
-};  
+const router = require('express').Router();
+
+router.get('/', function (req, res) {
+    return res.render('index');
+})
+
+module.exports = router;
