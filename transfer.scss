@@ -1,0 +1,96 @@
+.transfer{
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    display: flex;
+justify-content: center;
+align-items: center;
+
+.left{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    position: relative;
+    &::after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 450px;
+        border-radius: 999px;
+        background: url('./public/img/img_12.png') no-repeat;
+        z-index: -1;
+        opacity: .8;
+    }
+   h1,p{
+       width: 400px;
+   }
+   h1{
+       font-size: 46px;
+       font-weight: bolder;
+       color: #222831;
+   }
+   p{
+       font-size: 16px;
+       line-height: 25px;
+       color: #1b1c25;
+       padding:20px;
+   }
+}
+}
+
+.form-transfer{
+
+    height: 100%;
+    padding: 40px ;
+    .modal{
+        background-color: white;
+        width: 400px;
+        margin: 0 auto;
+        padding: 30px 30px 10px;
+        border-radius: 10px;
+        box-shadow: 2px 2px 10px rgba($color: #000000, $alpha: .3),
+                    -2px -2px 10px rgba($color: #000000, $alpha: .3),
+        ;
+    }
+    .title{
+        font-size: 20px;
+        font-weight: 600;
+        color: #ff5200;
+    }
+    form{
+        label{
+            display: block;
+            margin: 15px 0 5px;
+            font-size: 14px;
+        }
+        input,select,button{
+            height: 35px;
+            border-radius: 5px;
+            padding: 0 12px;
+            width: 100%;
+            border: 1px solid #ddd;
+            outline: none;
+            
+        }
+        button{
+            cursor: pointer;
+        }
+        .form-actions{
+
+            button{
+                margin: 20px 0;
+                background-color: #ff5200;
+                color: white;
+                text-align: center;
+                font-weight: bold;
+                text-transform: uppercase;
+                border-radius: 999px;
+               
+            }
+        }
+    }
+}
