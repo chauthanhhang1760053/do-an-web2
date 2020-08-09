@@ -6,7 +6,7 @@ const router = new Router();
 router.get('/', asyncHandler(async function (req, res) {
     res.render('employee/employee');
 }));
-
+ 
 router.post('/', asyncHandler(async function (req, res) {
     try {
         const users = await employee.find_email(req.body.email);

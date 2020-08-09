@@ -6,7 +6,7 @@ const router = new Router();
 
 router.get('/', asyncHandler(async function (req, res) {
     if (!req.currentEmployee) {
-        res.redirect('employee');
+        res.redirect('employee'); 
     }
     const cht = await thanhtoan.find_All();
     console.log(cht);
