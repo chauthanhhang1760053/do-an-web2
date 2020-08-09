@@ -15,6 +15,7 @@ class account extends Model {
         return account.findByPk(id);
     }
     static async findSoTaiKhoan(sotaikhoans){
+        
         return account.findOne({
             where: {
                 sotaikhoan:sotaikhoans,

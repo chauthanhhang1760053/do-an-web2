@@ -7,7 +7,7 @@ const router = new Router();
 router.get('/', asyncHandler(async function getlogin(req, res) {
     if (!req.currentEmployee) {
         res.redirect('employee');
-    }
+    } 
     const cht = await User.find_all_where_kichhoat();
     const thongbao = null;
     res.render('employee/xacthuc', { cht, thongbao });

@@ -17,6 +17,7 @@ class Employee extends Model {
     }
 }
 
+
 Employee.init({
     email: {
         type: Sequelize.STRING,
