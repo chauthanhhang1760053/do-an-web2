@@ -5,4 +5,4 @@ module.exports = function (req, res) {
     const employee = require('../../services/employee');
     res.render('employee/activity', { user: req.employee });
 };
- 
+  

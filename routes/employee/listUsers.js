@@ -3,8 +3,7 @@ const User = require('../../services/users');
 const Account = require('../../services/account');
 const asyncHandler = require('express-async-handler');
 
-const router = new Router();
-
+const router = new Router(); 
 router.get('/', asyncHandler(async function (req, res) {
     if (!req.currentEmployee) {
         res.redirect('/employee');

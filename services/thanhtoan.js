@@ -14,7 +14,7 @@ class thanhtoan extends Model {
             tienhienco: tientruoc,
             tienconlai: tiensau,
             tinhtrang: tinhtrang,
-        })
+        })  
     } 
     static async find_matk(matk){
         return thanhtoan.findOne({

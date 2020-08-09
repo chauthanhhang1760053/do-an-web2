@@ -5,3 +5,4 @@ const connectionString= process.env.DATABASE_URL || 'postgres://postgres:postgre
 const db=new Sequelize(connectionString);
 
 module.exports=db;
+ 
