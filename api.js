@@ -14,5 +14,5 @@ router.use('/', require('./routes/full-user'));
 
 router.use(authorization.needStaffPermission);
 router.use('/', require('./routes/staff'));
-
+ 
 module.exports = router;
