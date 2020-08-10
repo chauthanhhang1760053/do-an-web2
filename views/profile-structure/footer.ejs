@@ -1,0 +1,30 @@
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<%- include('./../new-structure/footer')%>
+<script>
+    $(function () {
+        const path = location.pathname;
+
+        $('.profile-nav-item').removeClass('active');
+        if (path == '/profile') {
+            $('.my-info').addClass('active')
+        }
+        if (path == '/verify-card') {
+            $('.verify-card').addClass('active')
+        }
+        if (path == '/history') {
+            $('.history').addClass('active')
+        }
+        if (path == '/profile') {
+            $('.my-info').addClass('active')
+        }
+        if (path == '/list-account') {
+            $('.my-account').addClass('active')
+        }
+
+    });
+</script>

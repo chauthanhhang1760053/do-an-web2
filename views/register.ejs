@@ -1,187 +1,181 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Đăng ký </title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-</head>
-<style>
-    body {    
-        background-image: url(bgdk.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-
-        opacity: 0.95; 
-        background-position: center;
-    }   
-    .btn {
-        
-
-        background-color:#ecb807;
-        font-family: "Georgia";
-        font-size: 19px;
-    } 
-
-    .btn-3:hover {
-        border: 1px solid;
-        box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
-        outline-color: rgba(255, 255, 255, 0);
-        outline-offset: 15px;
-        text-shadow: 1px 1px 2px #427388; 
-    }
-    
-    .center1 {
-        margin: auto;
-        width: 30%;
-        padding: 15px;
-    }
-
-	.purple-square {
-        padding: 12px 28px;
-        border: 5px double #3b464e 
-    }
-   
-    .main-w3layouts-agileinfo {
-        width: 35%;
-        margin: 0 auto;
-        padding: 4em 2em;
-        background: rgba(255, 255, 255, 0.07);        
-        box-shadow: 0 6px 553px 0 rgba(33, 73, 83, 0.4);     
-        border: 5px ridge #5b6c79
-    }
-
-    .form-sub-w3 {
-        position:relative;
-        margin-bottom: 15px;
-        text-align: center;         
-    }
-    .form-sub-w3 
-    input[type="text"],
-    input[type="password"] {
-        width: 75%;
-        padding: 15px 66px 15px 19px;
-        text-align: left ;      
-        font-family: Georgia;        
-        background-color: #f5f5f5;
-        border-left: 4px solid #3b464e;
-        border-top: 1px solid #3b464e;
-        border-right: 1px solid #3b464e;
-        border-bottom: 1px solid #3b464e;
-        font-style: italic;
-        font-size: 14px;
-        letter-spacing: 1.0px;
-        outline: 0;
-        -moz-box-shadow: 0 6px 12px 0 #3b464e;  
-    }
-
-    h4 {    
-        font-size: 15px;
-        font-family: Georgia;    
-        /* font-family: Courier New, monospace;     */
-        font-weight: 300;
-        text-align: center;
-        margin-bottom: 1.5em;
-        letter-spacing: 3px;
-    }
-    .wthree-form  {    
-        font-size: 15px;
-        font-family: Georgia;        
-        font-weight: 300;
-        text-align: center;
-        margin-bottom: 1.5em;
-        letter-spacing: 3px;
-        text-shadow: 3px 3px 4px rgb(11, 99, 121);
-    }
-
-    .x{
-        font-size: 70px;
-        text-align: center;
-        font-family: tahoma;  
-        color: azure;
-        text-shadow: 10px 5px 3px rgb(11, 99, 121);
-    }
-
-    .y {
-        font-size: 20px;
-        font-family: Bookman, Tahoma, Verdana;   
-        font-weight: 300;
-        text-align: center;
-        margin-bottom: 0.5em;
-        letter-spacing: 3px;        
-        color: azure;   
-    }
-    h1 {
-        font-size: 45px;
-        text-align: center;
-        font-family: verdana;
-        color:rgba(3, 0, 0, 0.616);
-        text-shadow: 2px 2px 3px rgb(112, 116, 117);
-        /* text-shadow: 1px 1px 4px rgb(11, 99, 121); */
-    }
-
-    .bg {
-        background-color:rgb(214, 222, 224);      
-    }   
-</style>
-<body >
-    <br>    
-    <div class="container-fluid">
-    <br>
-    <div class="row">
-    <div class="col-md-1">                   
-    </div>   
-    <br> 
-    <br>  
-    <div class=" bg col-md-4  border " style="padding: 0%;">
-        <br>
-        <h1 >ĐĂNG KÝ</h1> 
-          <i><h4 style="color: rgb(3, 0, 0);">Fill out the form below to register</h4></i>
-          <br> 
-            <form method="POST">
-                <div class="form-sub-w3">
-                    <input type="text" id="email" name="email" placeholder="Email " required="">
-                </div>        
-                <div class="form-sub-w3 center">
-                    <input type="text" id="displayName" name="displayName" placeholder="Displayname " required="">
+<%- include('./client-structure/header',{title:'Register'})%>
+<div class="login">
+    <div class="container">
+        <div class="modal">
+            <form action="">
+                <div class="previous">
+                    <a href="/">Back</a>
                 </div>
-                <div class="form-sub-w3">
-                    <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number " required="">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="gutter">
+                                <label for=""><span style="color: red;">*</span> Email</label>
+                                <input type="email" placeholder="example@gmail.com" id="email">
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="gutter">
+                                <label for=""><span style="color: red;">*</span> Username</label>
+                                <input type="text" id="username">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-sub-w3">
-                    <input type="password" id="password" name="password" placeholder="Password" required="">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="gutter">
+                                <label for=""><span style="color: red;">*</span> Fullname</label>
+                                <input type="text" placeholder="" id="fullname">
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="gutter">
+                                <label for=""><span style="color: red;">*</span> Address</label>
+                                <input type="text" id="address">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="center1">
-                    <button type="submit" class="btn btn-lg">Đăng ký</button>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="gutter">
+                                <label for=""><span style="color: red;">*</span> Card ID</label>
+                                <input type="text" placeholder="" id="card-id">
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="gutter">
+                                <label for=""><span style="color: red;">*</span> Card Type</label>
+                                <select name="" id="card-type">
+                                    <option value="CMND" selected>CMND</option>
+                                    <option value="CCCD">CCCD</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="gutter">
+                                <label for=""><span style="color: red;">*</span> Card Release Date</label>
+                                <input type="date" id="card-date">
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="gutter">
+                                <label for=""><span style="color: red;">*</span> Birthday</label>
+                                <input type="date" id="dob">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="gutter">
+                                <label for=""><span style="color: red;">*</span>Password</label>
+                                <input type="password" id="password">
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="gutter">
+                                <label for=""><span style="color: red;">*</span>Retype Your Password</label>
+                                <input type="password" id="re-password">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" style="text-align: right;margin-top: 10px;">
+                    <a href="/login">Already have an account?</a>
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-register"><i class="fas fa-sign-in-alt"></i> Register</button>
+                </div>
+                <div class="form-error">
+
                 </div>
             </form>
         </div>
-        <div class="col-md-7">
-            <div class="row">
-                <div class="col-md-3">                  
-                </div>
-                <div class="col-md-8">  
-                    <br> 
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>                                  
-                    <p class="x">NHHK BANK</p>                   
-                    <p class="y">Vì hạnh phúc mọi nhà</p> 
-                    <p class="y">Hãy cùng chúng tôi trải nghiệm cuộc sống tuyệt vời và tiện lợi </p> 
-                </div>
-                <div class="col-md-1">                        
-                </div>
-            </div>
-        </div>
-    </div>   
-</div>        
-</body>
-</html>
+    </div>
+</div>
+<%- include('./client-structure/footer')%>
+<script>
+    $(function () {
+        $('.btn-register').click(function (e) {
+            $('.form-error').empty();
+            e.preventDefault();
+            const email = $('#email').val();
+            const username = $('#username').val();
+            const fullName = $('#fullname').val();
+            const cardId = $('#card-id').val();
+            const cardType = $('#card-type').val();
+            const date = new Date($('#card-date').val()).toISOString().slice(0, 10)
+            const address = $('#address').val();
+            const birth = new Date($('#dob').val()).toISOString().slice(0, 10)
+            const password = $('#password').val();
+            const password_retype = $('#re-password').val();
+
+
+            if (!email || !username || !fullName || !cardId || !cardType || !date || !address || !birth || !password || !password_retype) {
+                AddError('Vui lòng nhập đầy đủ nội dung')
+                return
+            }
+            if (!validateEmail(email)) {
+                AddError('Địa chỉ email không hợp lệ')
+                return
+            }
+            if (password != password_retype) {
+                AddError('Mật khẩu xác thực không hợp lệ')
+                return
+            }
+
+            $.post("/api/register", { email, fullName, username, cardId, cardType, date, address, birth, password, password_retype },
+                function (data, textStatus, jqXHR) {
+                    console.log(data)
+                    if (data) {
+                        if (data == 'ok') {
+                            alert('Tạo tài khoản thành công')
+                            $(location).attr('href', '/login')
+                            return
+                        }
+                        if (data == 'empty') {
+                            AddError('Vui lòng điền đầy đủ thông tin')
+                            return
+                        }
+                        if (data == 'wrong type') {
+                            AddError('Username và Card ID không được chứa dấu cách')
+                            return
+                        }
+                        if (data == 'not equal') {
+                            AddError('Mật khẩu xác thực không hợp lệ')
+                            return
+                        }
+                        if (data == 'email used') {
+                            AddError('Email đã được sử dụng')
+                            return
+                        }
+                        if (data == 'cardId used') {
+                            AddError('Card Id đã được sử dụng')
+                            return
+                        }
+                        if (data == 'username used') {
+                            AddError('Username đã được sử dụng')
+                            return
+                        }
+                        alert(data)
+                    }
+                    else {
+                        alert('Đã xảy ra lỗi')
+                        return
+                    }
+                }
+            );
+
+        });
+    });
+</script>

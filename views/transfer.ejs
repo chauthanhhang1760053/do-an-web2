@@ -1,0 +1,192 @@
+<%- include('./new-structure/header',{title:'Transfer'})%>
+<div class="transfer " style="margin-top: 20px;">
+    <div class="container">
+        <div class="row" style="position: relative;">
+            <div class="col-xs-12">
+                <div class="form-transfer">
+                    <div class="modal">
+                        <h3 class="title">Send Money</h3>
+                        <form action="">
+                            <div class="form-group">
+                                <label for=""><span style="color: red;">*</span> From Account</label>
+                                <select name="" id="account">
+
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for=""><span style="color: red;">*</span> Amount</label>
+                                <input type="text" id="amount" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label for=""><span style="color: red;">*</span> Currency</label>
+                                <select name="" id="currency" disabled>
+                                    <option value="VND">VND</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for=""><span style="color: red;">*</span> To Account</label>
+                                <input type="text" id="to-account">
+                            </div>
+                            <div class="form-group">
+                                <label for=""><span style="color: red;">*</span> Message</label>
+                                <input type="text" id="message">
+                            </div>
+
+                            <div class="form-group flex a-center">
+                                <label for=""><span style="color: red;">*</span> Fee:</label>
+                                <p style="margin: 15px 20px 5px; font-size: 14px;" id="fee">0</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="" style=""><span style="color: red;">*</span> Code</label>
+                                <div class="row a-center">
+                                    <div class="col-xs-8">
+                                        <input type="text" id="code">
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <button style="background-color:#333 ; color: white;" class="btn-sendcode"> SEND
+                                            CODE</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <button class="btn-transfer"><i class="fas fa-dollar-sign"></i> TRANSFER NOW</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 left" style="">
+
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('./new-structure/footer')%>
+<script>
+    $(function () {
+        $('#account').change(function (e) {
+            e.preventDefault();
+            const accountId = $('#account').val()
+            const amount = 0;
+            $.get("/api/fee", { accountId, amount },
+                function (data, textStatus, jqXHR) {
+                    console.log(data)
+                    if (data && data.currencyType) {
+                        $('#currency').empty()
+                        $(`<option value="${data.currencyType}">${data.currencyType}</option>`).appendTo('#currency');
+                    }
+                },
+            );
+        });
+        $('.btn-transfer').click(function (e) {
+            e.preventDefault();
+            const accountId_1 = $('#account').val()
+            const accountId_2 = $('#to-account').val()
+            const amount = $('#amount').val()
+            const message = $('#message').val()
+            const code = $('#code').val()
+            if (!accountId_1 || !accountId_2 || !amount || !message || !code) {
+                alert('Vui lòng điền đầy đủ nội dung')
+                return;
+            }
+
+            $.post("/api/transfer", { accountId_1, amount, accountId_2, message, code },
+                function (data, textStatus, jqXHR) {
+                    if (data) {
+                        if (data == 'ok') {
+                            alert('chuyển tiền thành công')
+                            $(location).attr('href', '/transfer')
+                            return
+                        }
+                        if (data == 'wrong code') {
+                            alert('chuyển tiền thất bại. "sai mã" ')
+                            return
+                        }
+                        if (data == 'accountId_1 locked') {
+                            alert('chuyển tiền thất bại. "tài khoản của bạn đang bị khóa" ')
+                            return
+                        }
+                        if (data == 'accountId_2 locked') {
+                            alert('chuyển tiền thất bại. "tài khoản người nhận đang bị khóa" ')
+                            return
+                        }
+                        if (data == 'limit') {
+                            alert('chuyển tiền thất bại. "vượt giới hạn tiền (50tr)" ')
+                            return
+                        }
+                        if (data == 'over balance') {
+                            alert('chuyển tiền thất bại. "bạn không đủ tiền"')
+                            return
+                        }
+                        if (data == 'not owner') {
+                            alert('rút tiền thất bại. "bạn không phải chủ sở hữu" ')
+                            return
+                        }
+                    }
+                    alert('chuyển tiền thất bại. Đăng xuất và thử lại')
+                    return
+                },
+            );
+
+        });
+        $('.btn-sendcode').click(function (e) {
+            e.preventDefault();
+            $.post("/api/resend-code",
+                function (data, textStatus, jqXHR) {
+                    if (data) {
+                        if (data && data == 'ok') {
+                            alert('Đã gửi mã');
+                            return;
+                        }
+                        alert('Đã xảy ra lỗi. Đăng xuất và thử lại');
+                        return;
+                    }
+                    else {
+                        alert('Đã xảy ra lỗi. Đăng xuất và thử lại');
+                        return;
+                    }
+                },
+            );
+        });
+        $.get("/api/account-array", function (data, textStatus, jqXHR) {
+            if (data && data.length > 0) {
+                data.map(item => {
+                    $(`  <option value="${item}">${item}</option>`).appendTo('#account');
+                })
+
+                const accountId = $('#account').val()
+                const amount = 0;
+                $.get("/api/fee", { accountId, amount },
+                    function (data, textStatus, jqXHR) {
+                        $('#currency').empty()
+                        if (data && data.currencyType) {
+                            $(`<option value="${data.currencyType}">${data.currencyType}</option>`).appendTo('#currency');
+                        }
+                    },
+                );
+
+            }
+        },
+        );
+        $('#amount').keyup(function (e) {
+            const accountId = $('#account').val()
+            const amount = $('#amount').val()
+
+            if ((amount < 0 || !Number(amount)) && amount.length > 0) {
+                alert('Tiền gửi không hợp lệ')
+                $('#fee').text('0')
+                return;
+            }
+
+            $.get("/api/fee", { accountId, amount },
+                function (data, textStatus, jqXHR) {
+                    if (data) {
+                        $('#fee').text(`${data.fee} ${data.currencyType}`)
+                    }
+                },
+            );
+        });
+
+    });
+
+</script>

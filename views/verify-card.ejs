@@ -1,0 +1,116 @@
+<%- include('./profile-structure/header',{title:'Verify'})%>
+<div class="pop-up">
+
+</div>
+
+
+<div class="personal-detail profile-right-content ">
+    <div class="title">
+        <h3>Card Verify</h3>
+    </div>
+
+    <div class="personal-detail-item">
+        <form action="" method="post" enctype="multipart/form-data">
+            <div class="flex a-center">
+                <label for="">Image</label>
+                <input type="file" id="img" name="img" accept="image/*">
+            </div>
+            <%if(error){%>
+            <div class="form-error">
+                <p style="color: red;"> <%-error-%></p>
+            </div>
+            <%}%>
+            <div class="flex a-center" style="margin-top: 30px;">
+                <label for=""></label>
+                <button class="btn-update"
+                    style="background-color:#4b5d67 ; cursor: pointer; height: 40px;">Confirm</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<%- include('./profile-structure/footer')%>
+            <script>
+                $(function () {
+
+                    $.get("/api/info",
+                        function (data, textStatus, jqXHR) {
+                            console.log(data)
+                            if (data) {
+
+                                $('#fullname').val(data.fullName);
+                                $('#email').val(data.email);
+                                $('#username').val(data.username);
+                                $('#address').val(data.address);
+                                $('#birth').val(new Date(data.birth).toISOString().slice(0, 10));
+                            }
+                        },
+                    );
+                    $('.btn-change-password').click(function (e) {
+                        e.preventDefault();
+                        $('.login').fadeOut();
+                        $(`<div class="login"
+    style="position: fixed;width: 100vw;height: 100vh;top: 0;left: 0; z-index: 9999;background: rgba(0,0,0,0.8);">
+    <div class="container">
+        <div class="modal" style="margin-top: 200px;">
+            <form action="">
+                <div class="form-title flex a-center j-between">
+                    <h3>Change Password</h3>
+                    <a href="" id="close" class="close" style="text-decoration: none;"><i class="far fa-times-circle"
+                            style="font-size: 24px;"></i></a>
+                </div>
+                <div class="form-group">
+                    <label for=""><span style="color: red;">*</span> Password</label>
+                    <input type="password" placeholder="" id="password-old">
+                </div>
+                <div class="form-group">
+                    <label for=""><span style="color: red;">*</span> New-Password</label>
+                    <input type="password" placeholder="" id="password">
+                </div>
+                <div class="form-group">
+                    <label for=""><span style="color: red;">*</span> Re-Password</label>
+                    <input type="password" placeholder="" id="password-retype">
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-submit"><i class="fas fa-lock-open"></i> Change</button>
+                </div>
+                <div class="form-error" style="margin-bottom:-10px">
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>`).prependTo('.pop-up');
+                    })
+
+                    $(document).on('click', '.btn-submit', function (e) {
+                        e.preventDefault();
+                        const password_old = $('#password-old').val()
+                        const password = $('#password').val()
+                        const password_retype = $('#password-retype').val()
+
+                        if (!password_old || !password || !password_retype) {
+                            AddError('Vui lòng điền đầy đủ thông tin')
+                            return;
+                        }
+                        if (password != password_retype) {
+                            AddError('Mật khẩu xác thực không trùng khớp')
+                            return;
+                        }
+                        alert('Chua update api')
+                        $('.login').fadeOut(300)
+                    });
+
+                    $('.btn-update').click(function (e) {
+                        if ($('#img').val().length <= 0) {
+                            e.preventDefault();
+                            alert('Vui lòng chọn ảnh')
+                            return;
+                        }
+                        alert('Đã gửi yêu cầu. Nhân viên sẽ hoàn tất')
+                    });
+
+
+                });
+            </script>

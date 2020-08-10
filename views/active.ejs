@@ -1,0 +1,88 @@
+<%- include('./client-structure/header',{title:'Active Account'})%>
+<div class="login">
+    <div class="container">
+        <div class="modal" style="margin-top: 200px;">
+            <form action="">
+                <div class="form-title flex a-center j-between">
+                    <h3>Active</h3>
+                    <a href="" id="logout" class="logout">Logout</a>
+                </div>
+                <div class="form-group">
+                    <label for=""><span style="color: red;">*</span>Code</label>
+                    <input type="text" placeholder="" id="code">
+                </div>
+                <div class="form-group">
+                    <a href="" id="send">Resend Code</a>
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn btn-submit"><i class="fas fa-sign-in-alt"></i> Submit</button>
+                </div>
+                <div class="form-error">
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include('./client-structure/footer')%>
+<script>
+
+    $(function () {
+        $('#send').click(function (e) {
+            e.preventDefault();
+            $('.form-error').empty()
+
+            $.post("/api/resend-code",
+                function (data, textStatus, jqXHR) {
+                    if (data) {
+                        if (data == 'ok') {
+                            alert('Đã gửi mã. Vui lòng kiểm tra email.');
+                            return;
+                        }
+                        if (data == 'fail') {
+                            alert('Email không tồn tại trong hệ thống.')
+                            $(location).attr('href', '/login')
+                            return
+                        }
+                    }
+                    else {
+                        alert('Đã xảy ra lỗi')
+                    }
+                },
+            );
+
+        });
+
+        $('.btn-submit').click(function (e) {
+            e.preventDefault();
+            const code = $('#code').val();
+            if (!code) {
+                AddError('Vui lòng nhập code');
+                return
+            }
+            $.get("/api/verify-email", { code },
+                function (data, textStatus, jqXHR) {
+
+                    if (data) {
+                        if (data == 'ok') {
+                            $(location).attr('href', '/')
+                            return;
+                        }
+                        if (data == 'fail') {
+                            AddError('Code không hợp lệ');
+                            return;
+                        }
+
+                        alert(data)
+                    }
+                    else {
+                        AddError('Đã xảy ra lỗi');
+                    }
+                },
+            );
+        });
+
+    });
+
+</script>

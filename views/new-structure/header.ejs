@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <title>NKHH Bank - <%- title%></title>
+</head>
+
+<body>
+
+    <header style="height: 90px;">
+        <div class="container">
+            <div class="fix">
+                <div class="nav-bar flex a-center j-between">
+                    <div class="logo">
+                        NKHH
+                    </div>
+                    <div class="nav-list">
+                        <ul class="flex a-center j-between">
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <% if(currentUser && currentUser.permission == 0){%>
+                            <li>
+                                <a href="/profile">Profile</a>
+                            </li>
+                            <li>
+                                <a href="/transfer">Transfer</a>
+                            </li>
+                            <li>
+                                <a href="/withdraw">Withdraw</a>
+                            </li>
+                            <%}else if(currentUser && currentUser.permission == 1){%>
+                            <li><a href="/list-user">Manage user</a></li>
+                            <li><a href="/history-user">User's history</a></li>
+                            <%}%>
+                            <li>
+                                <a href="/about">About</a>
+                            </li>
+                            <li>
+                                <a href="/privacy">Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="user-handle">
+                        <ul class="flex a-center ">
+                            <%if(!currentUser){%>
+                            <li><a href="/login" class="btn btn-login">Login </a></li>
+                            <li><a href="/register" class="btn-sign-up">Sign Up </a></li>
+                            <%}else{%>
+                            <li><a href="" id="logout" class="logout btn btn-login">Log out</a></li>
+                            <%}%>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="overlay">
+        </div>
+    </header>

@@ -1,0 +1,695 @@
+<%- include('../new-structure/header',{title:'Manager'})%>
+
+<div class="staff" style="padding-bottom: 60px;">
+
+    <div class="s-pop-up pop-up-verify">
+        <div class="modal">
+            <div class="form">
+                <div class="form-tile">
+                    <h3>Verify</h3>
+                    <div class="s-close" style="text-align: right;"><i class="far fa-times-circle"></i></div>
+                </div>
+                <div class="form-group">
+                    <label for="">User ID: </label>
+                    <p for="" class="userID-v"></p>
+                </div>
+                <div class="form-group">
+                    <label for="">Full Name: </label>
+                    <p for="" class="fullName"></p>
+                </div>
+                <div class="form-group">
+                    <label for="">Card Type: </label>
+                    <p for="" class="cardType"></p>
+                </div>
+                <div class="form-group">
+                    <label for="">Card ID: </label>
+                    <p for="" class="cardID"></p>
+                </div>
+                <div class="form-group">
+                    <label for="" style="display: block;">Image: </label>
+                    <img src="" alt="" class="image">
+                </div>
+                <div class="form-actions">
+                    <button class="btn-verify-pop">Verify</button>
+                    <button class="btn-eject">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="s-pop-up pop-up-create-account">
+        <div class="modal">
+            <div class="form">
+                <div class="form-tile">
+                    <h3>Create Accounts</h3>
+                    <div class="s-close" style="text-align: right;"><i class="far fa-times-circle"></i></div>
+                </div>
+                <div class="form-group">
+                    <label for="">User ID: </label>
+                    <input type="text" disabled class="c-userID">
+                </div>
+                <div class="form-group">
+                    <label for="">Account Type: </label>
+                    <select name="" id="c-accountType">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="" style="display: block;">Currency: </label>
+                    <select name="" id="c-currency">
+                        <option value="VND">VND</option>
+                        <option value="USD">USD</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Money: </label>
+                    <input type="text" class="c-money">
+                </div>
+                <div class="for-savings-account" style="display: none;">
+
+                    <div class="form-group">
+                        <label for="" style="display: block;">Term: </label>
+                        <select name="" id="c-month">
+                            <option value="12">12 Months - 5%</option>
+                            <option value="24">24 Months - 6%</option>
+                            <option value="36">36 Months - 7%</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="form-actions">
+                    <button class="s-create-account">Create</button>
+                    <button class="btn-eject">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="s-pop-up pop-up-update">
+        <div class="modal" style="width: 90%;">
+
+            <div class="info">
+                <div class="form-tile">
+                    <h3 style="text-transform: uppercase;">Update</h3>
+                    <div class="s-close" style="text-align: right;"><i class="far fa-times-circle"></i></div>
+                </div>
+                <div class="form-tile">
+                    <h3 style="margin-top: 20px;height: 30px;padding: 0;border-radius: 0; font-size: 14px;
+                    line-height: 30px;background-color: #0f4c75;">Information</h3>
+                </div>
+                <div class="form" style="width: 600px;margin: 0 auto;">
+                    <div class=" form-group">
+                        <label for="">User ID: </label>
+                        <input type="text" disabled class="u-userID">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Full name: </label>
+                        <input type="text" value="" class="u-fullName">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Username: </label>
+                        <input type="text" value="" class="u-username" disabled>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Email: </label>
+                        <input type="text" value="" class="u-email">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Birth: </label>
+                        <input type="date" value="" class="u-birth">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Address: </label>
+                        <input type="text" value="123 321 " class="u-address">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Card Type: </label>
+                        <input type="text" value="CMND" disabled class="u-cardType">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Card ID: </label>
+                        <input type="text" value="12321321" disabled class="u-cardID">
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn-u-update" style="background-color: #0f4c75;">Update</button>
+                    </div>
+                </div>
+            </div>
+            <div class="account">
+                <div class="form-tile">
+                    <h3 style="margin-top: 20px;height: 30px;padding: 0;border-radius: 0; font-size: 14px;
+                    line-height: 30px;background-color: #0f4c75;">Accounts</h3>
+                </div>
+                <div class="form">
+                    <div class="row ">
+                        <div class="col-xs-7 ">
+                            <div class="form-group">
+                                <h4>List Account</h4>
+                            </div>
+                            <div class="list-account row j-between">
+
+                            </div>
+                        </div>
+                        <div class="col-xs-5">
+                            <div class="form-group">
+                                <h4>Add money</h4>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Card ID: </label>
+                                <select name="" id="u-account-id" class="sel-list-card">
+
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Money: </label>
+                                <input type="text" value="0" id="u-money">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Currency: </label>
+                                <select name="" id="u-currency">
+                                    <option value="VND">
+                                        VND
+                                    </option>
+                                    <option value="USD">
+                                        USD
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button style="background-color: #0f4c75;" class="u-st-addmoney">Add money</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="list-user">
+            <div class="title">
+                <h3>Manager users</h3>
+            </div>
+            <div class="search flex a-center">
+                <input type="search" name="" id="search-txt" placeholder="Enter your email or user">
+                <button class="btn-search">Search</button>
+            </div>
+            <div class="list-user-content">
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Fullname</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Birth</th>
+                        <th>Block</th>
+                        <th>Verify</th>
+                        <th>Update</th>
+                        <th>Create Account</th>
+                    </tr>
+                </table>
+            </div>
+            <div class="pagination">
+                <ul class="flex j-center a-center">
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('../new-structure/footer')%>
+<script>
+
+    // 
+    function fetchData(start, limit) {
+
+        $.get("/api/list-user", { start, limit },
+            function (data, textStatus, jqXHR) {
+                $('.list-content-item').remove();
+                if (data && data.rows) {
+                    data.rows.forEach(element => {
+                        $(`
+                        <tr class="list-content-item">
+                        <td>${element.id}</td>
+                        <td>${element.fullName}</td>
+                        <td>${element.username}</td>
+                        <td>${element.email}</td>
+                        <td>${element.birth}</td>
+                        <td><button class="btn btn-block" onclick="${element.status == 0 ? 'unblock(' + element.id + ')' : 'block(' + element.id + ')'}">${element.status == 0 ? 'Unblock' : 'Block'}</button></td>
+                        <td>
+                            <button class="btn btn-verify" onclick="${element.cardIdVerify == 0 ? 'showPopUpVerify(' + element.id + ')' : 'VerifyAndUnverify(' + element.id + ')'}">
+                            ${element.cardIdVerify == 0 ? 'Verify' : 'Unverify'}</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-update" onclick="showPopUpUpdate(${element.id})">Update</button>
+                        </td>
+                        <td>
+                            <button class="btn btn-create-account" onclick="showPopUpCreateCard(${element.id})">Create</button>
+                        </td>
+                    </tr>
+                        `).appendTo('.list-user table');
+                    });
+                    // xử li pagination
+
+                    const numpage = (Math.floor(data.count / limit) + (data.count / limit > 0 ? 1 : 0))
+
+                    $('.pagination ul').empty()
+                    for (let i = 0; i < numpage; i++) {
+                        if (i == start) {
+                            $(`<li class="pagination-item active" value=${i}>
+                            <a href="">${i + 1}</a>
+                        </li>`).appendTo(`.pagination ul`);
+                        }
+                        else {
+                            $(`<li class="pagination-item" value=${i}>
+                            <a href="">${i + 1}</a>
+                        </li>`).appendTo(`.pagination ul`);
+                        }
+                    }
+                }
+            },
+        );
+
+    }
+
+    // function for event
+    function VerifyAndUnverify(id) {
+        $.post("/api/n-verify-and-unverify", { id },
+            function (data, textStatus, jqXHR) {
+                $('.s-pop-up').removeClass('active');
+                if (data) {
+                    fetchData(0, 7);
+                    return
+                }
+                alert('Đã xảy ra lỗi. Vui lòng thử lại sau')
+                return;
+            },
+        );
+    }
+    function block(id) {
+        $.post("/api/update-user", { id, status: 0 },
+            function (data, textStatus, jqXHR) {
+                if (data) {
+                    fetchData(0, 7);
+                    return
+                }
+                alert('Đã xảy ra lỗi. Vui lòng thử lại sau')
+                return;
+            },
+        );
+    }
+    function unblock(id) {
+        $.post("/api/update-user", { id, status: 1 },
+            function (data, textStatus, jqXHR) {
+                if (data) {
+                    fetchData(0, 7);
+                    return
+                }
+                alert('Đã xảy ra lỗi. Vui lòng thử lại sau')
+                return;
+            },
+        );
+    }
+
+    // show pop up
+    function showPopUpVerify(id) {
+        $('.s-pop-up').removeClass('active');
+        $('.pop-up-verify').addClass('active');
+        $.post("/api/info-user", { id },
+            function (data, textStatus, jqXHR) {
+                if (data && data != 'fail') {
+                    $('.userID-v').text(data.id)
+                    $('.fullName').text(data.fullName)
+                    $('.username').text(data.username)
+                    $('.cardType').text(data.cardType)
+                    $('.cardID').text(data.cardId)
+                    $('.image').attr('src', `./img/${data.URL}`)
+                }
+            },
+        );
+    }
+    function showPopUpUpdate(id) {
+        $('.s-pop-up').removeClass('active');
+        $('.pop-up-update').addClass('active');
+        $.post("/api/info-user", { id },
+            function (data, textStatus, jqXHR) {
+                if (data && data != 'fail') {
+                    $('.u-userID').val(data.id)
+                    $('.u-fullName').val(data.fullName)
+                    $('.u-username').val(data.username)
+                    $('.u-email').val(data.email)
+                    $('.u-birth').val(data.birth)
+                    $('.u-address').val(data.address)
+                    $('.u-cardType').val(data.cardType)
+                    $('.u-cardID').val(data.cardId)
+                }
+            },
+        );
+        $.post("/api/n-list-account", { id },
+            function (data, textStatus, jqXHR) {
+                $('.list-account').empty();
+                $('.sel-list-card').empty();
+                if (data.length > 0) {
+                    data.map(item => {
+                        $(` <div class="account-item col-xs-6">
+                                            <div class="form-group">
+                                                <label for="">Account ID: </label>
+                                                <p>${item.accountID}</p>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Money: </label>
+                                                <p>${item.money} ${item.currency}</p>
+                                            </div>
+                                            <div class="form-group flex a-center">
+                                                <label for="">Account Type: </label>
+                                                <p style="">${item.cardType == 1 ? 'Thanh toán' : 'Tiết kiệm'}</p>
+                                            </div>
+                                        </div>`).appendTo('.list-account');
+
+                        if (item.cardType == 1) {
+                            $(`<option value="${item.accountID}">
+                                                ${item.accountID}
+                                            </option>`).appendTo('.sel-list-card');
+                        }
+
+                    })
+                }
+            },
+        );
+    }
+    function showPopUpCreateCard(id) {
+        $('#c-accountType').empty()
+        $('.for-savings-account').css('display', 'none')
+        $('.s-pop-up').removeClass('active');
+        $('.pop-up-create-account').addClass('active');
+        $('.c-userID').val(id);
+        $(' <option value="1">TKTT</option>').appendTo('#c-accountType');
+        $.post("/api/n-list-account", { id },
+            function (data, textStatus, jqXHR) {
+                if (data.length > 0) {
+                    $(' <option value="0">TKTK</option>').appendTo('#c-accountType');
+
+                }
+            },
+        );
+    }
+
+
+    $(function () {
+        // get data
+        fetchData(0, 7);
+
+        // fix css
+        $('header').css('background', '#1b262c');
+        $('.overlay').css('display', 'none')
+
+        // handle event
+
+        // Pagination
+        $(document).on('click', '.pagination-item', function (e) {
+            e.preventDefault();
+            $('.pagination-item').removeClass('active')
+            $(this).addClass('active')
+            const start = $(this).attr('value');
+
+            fetchData(start, 7);
+        });
+        $(document).on('click', '.s-pagination-item', function (e) {
+            e.preventDefault();
+            $('.pagination ul').empty();
+            $('.s-pagination-item').removeClass('active')
+            $(this).addClass('active')
+            const start = $(this).attr('value');
+            const searchValue = $('#search-txt').val();
+            if (!searchValue) {
+                fetchData(0, 7)
+                return
+            }
+
+            $.get("/api/list-user", { start, search: searchValue },
+                function (data, textStatus, jqXHR) {
+                    $('.list-content-item').remove();
+                    if (data && data.rows) {
+                        data.rows.forEach(element => {
+                            $(`
+                <tr class="list-content-item">
+                <td>${element.id}</td>
+                <td>${element.fullName}</td>
+                <td>${element.username}</td>
+                <td>${element.email}</td>
+                <td>${element.birth}</td>
+                <td><button class="btn btn-block" onclick="${element.status == 0 ? 'unblock(' + element.id + ')' : 'block(' + element.id + ')'}">${element.status == 0 ? 'Unblock' : 'Block'}</button></td>
+                <td>
+                    <button class="btn btn-verify" onclick="${element.cardIdVerify == 0 ? 'showPopUpVerify(' + element.id + ')' : 'VerifyAndUnverify(' + element.id + ')'}">
+                    ${element.cardIdVerify == 0 ? 'Verify' : 'Unverify'}</button>
+                </td>
+                <td>
+                    <button class="btn btn-update" onclick="showPopUpUpdate(${element.id})">Update</button>
+                </td>
+                <td>
+                    <button class="btn btn-create-account" onclick="showPopUpCreateCard(${element.id})">Create</button>
+                </td>
+            </tr>
+                `).appendTo('.list-user table');
+                        });
+                        // xử li pagination
+
+                        const numpage = (Math.floor(data.count / limit) + (data.count / limit > 0 ? 1 : 0))
+
+                        $('.pagination ul').empty()
+                        for (let i = 0; i < numpage; i++) {
+                            if (i == start) {
+                                $(`<li class="s-pagination-item active " value=${i}>
+                    <a href="">${i + 1}</a>
+                </li>`).appendTo(`.pagination ul`);
+                            }
+                            else {
+                                $(`<li class="s-pagination-item " value=${i}>
+                    <a href="">${i + 1}</a>
+                </li>`).appendTo(`.pagination ul`);
+                            }
+                        }
+                    }
+                },
+            );
+
+        });
+
+
+        $(document).on('click', '.btn-verify-pop', function () {
+            const id = $('.userID-v').text()
+            if (id) {
+                VerifyAndUnverify(id)
+            }
+        });
+        $(document).on('click', '.s-close', function () {
+            $('.s-pop-up').removeClass('active')
+        });
+        $(document).on('click', '.btn-eject', function () {
+            $('.s-pop-up').removeClass('active')
+        });
+        $(document).on('change', '#c-accountType', function () {
+            const accountType = $('#c-accountType').val();
+            if (accountType != '0') {
+                $('.for-savings-account').css('display', 'none ')
+            }
+            else {
+                $('.for-savings-account').css('display', 'block')
+            }
+        });
+        $(document).on('click', '.s-create-account', function () {
+            const id = $('.c-userID').val();
+            const accountType = $('#c-accountType').val();
+            const balance = $('.c-money').val();
+            const currencyType = $('#c-currency').val();
+
+            if (!id || !accountType || !balance || !currencyType) {
+                alert('Vui lòng nhập đầy đủ nội dung')
+                return
+            }
+
+            console.log({ id, accountType, balance, currencyType })
+
+            if (accountType == 1) {
+                $.post("/api/create-account", { id, accountType, balance, currencyType },
+                    function (data, textStatus, jqXHR) {
+                        console.log(data)
+                        if (data && data == 'fail') {
+                            alert('tạo tài khoản thanh toán  thất bại')
+                            return;
+                        }
+                        alert('tạo tài khoản thanh toán thành công')
+                        return
+                    },
+                );
+                return;
+            }
+
+            const term = $('#c-month').val();
+            $.post("/api/create-account", { id, accountType, balance, currencyType, term },
+                function (data, textStatus, jqXHR) {
+                    if (data && data == 'fail') {
+                        alert('tạo tài khoản tiết kiệm thất bại')
+                        return;
+                    }
+                    alert('tạo tài khoản tiết kiệm  thành công')
+                    return
+                },
+            );
+        });
+        $(document).on('click', '.u-st-addmoney', function () {
+            const accountId = $('#u-account-id').val();
+            const balance = $('#u-money').val();
+            const currencyType = $('#u-currency').val();
+            if (!accountId || !balance || !currencyType) {
+                alert('vui lòng nhập đầy đủ thông tin')
+                $('#u-money').focus();
+                return;
+            }
+
+            if (!Number(balance)) {
+                alert('vui lòng nhập tiền hợp lệ')
+                $('#u-money').focus();
+                return
+            }
+
+
+            $.post("/api/load-up", { accountId, balance, currencyType },
+                function (data, textStatus, jqXHR) {
+                    console.log(data);
+                    if (data && data == 'ok') {
+                        alert('nạp tiền thành công')
+                        const newId = $('.u-userID').val();
+                        if (!newId) return
+                        $.post("/api/n-list-account", { id: newId },
+                            function (data, textStatus, jqXHR) {
+                                $('.list-account').empty();
+                                $('.sel-list-card').empty();
+                                if (data.length > 0) {
+                                    data.map(item => {
+                                        $(` <div class="account-item col-xs-6">
+                                            <div class="form-group">
+                                                <label for="">Account ID: </label>
+                                                <p>${item.accountID}</p>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="">Money: </label>
+                                                <p>${item.money} ${item.currency}</p>
+                                            </div>
+                                            <div class="form-group flex a-center">
+                                                <label for="">Account Type: </label>
+                                                <p style="">${item.cardType == 1 ? 'Thanh toán' : 'Tiết kiệm'}</p>
+                                            </div>
+                                        </div>`).appendTo('.list-account');
+
+                                        if (item.cardType == 1) {
+                                            $(`<option value="${item.accountID}">
+                                                ${item.accountID}
+                                            </option>`).appendTo('.sel-list-card');
+                                        }
+                                    })
+                                }
+                            },
+                        );
+                        return;
+                    }
+                    alert('nạp tiền thất bại')
+                    return;
+                },
+            );
+        });
+        $(document).on('click', '.btn-u-update', function () {
+            const id = $('.u-userID').val()
+            const fullName = $('.u-fullName').val()
+            const address = $('.u-address').val()
+            const email = $('.u-email').val()
+            const username = $('.u-username').val()
+            const birth = $('.u-birth').val()
+
+            if (!id) {
+                alert('Đã xảy ra lỗi')
+                $(location).attr('href', '/list-user')
+                return;
+            }
+            if (!email || !username || !fullName) {
+                alert('Không được để trống tên, mail và username')
+                $('.u-fullName').focus();
+                return;
+            }
+            if (!validateEmail(email)) {
+                alert('vui lòng nhập địa chỉ email hợp lệ')
+                $('.u-email').focus();
+                return
+            }
+            $.post("/api/update-user", { id, fullName, address, birth, email },
+                function (data, textStatus, jqXHR) {
+                    if (data && data == 'ok') {
+                        alert('cập nhật thành công')
+                        // get data
+                        fetchData(0, 7);
+                        return
+                    }
+                    alert('cập nhật thất bại')
+                    return
+                },
+            );
+        });
+        $(document).on('click', '.btn-search', function (e) {
+            $('.pagination ul').empty();
+            e.preventDefault();
+            const searchValue = $('#search-txt').val();
+            if (!searchValue) {
+                fetchData(0, 7)
+                return
+            }
+            $.get("/api/list-user", { search: searchValue },
+                function (data, textStatus, jqXHR) {
+                    $('.list-content-item').remove();
+                    if (data && data.rows) {
+                        data.rows.forEach(element => {
+                            $(`
+                <tr class="list-content-item">
+                <td>${element.id}</td>
+                <td>${element.fullName}</td>
+                <td>${element.username}</td>
+                <td>${element.email}</td>
+                <td>${element.birth}</td>
+                <td><button class="btn btn-block" onclick="${element.status == 0 ? 'unblock(' + element.id + ')' : 'block(' + element.id + ')'}">${element.status == 0 ? 'Unblock' : 'Block'}</button></td>
+                <td>
+                    <button class="btn btn-verify" onclick="${element.cardIdVerify == 0 ? 'showPopUpVerify(' + element.id + ')' : 'VerifyAndUnverify(' + element.id + ')'}">
+                    ${element.cardIdVerify == 0 ? 'Verify' : 'Unverify'}</button>
+                </td>
+                <td>
+                    <button class="btn btn-update" onclick="showPopUpUpdate(${element.id})">Update</button>
+                </td>
+                <td>
+                    <button class="btn btn-create-account" onclick="showPopUpCreateCard(${element.id})">Create</button>
+                </td>
+            </tr>
+                `).appendTo('.list-user table');
+                        });
+                        // xử li pagination
+
+                        const numpage = (Math.floor(data.count / limit) + (data.count / limit > 0 ? 1 : 0))
+
+                        $('.pagination ul').empty()
+                        for (let i = 0; i < numpage; i++) {
+                            if (i == start) {
+                                $(`<li class="s-pagination-item active " value=${i}>
+                    <a href="">${i + 1}</a>
+                </li>`).appendTo(`.pagination ul`);
+                            }
+                            else {
+                                $(`<li class="s-pagination-item " value=${i}>
+                    <a href="">${i + 1}</a>
+                </li>`).appendTo(`.pagination ul`);
+                            }
+                        }
+                    }
+                },
+            );
+
+        });
+
+
+    });
+</script>

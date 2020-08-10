@@ -1,0 +1,222 @@
+<%- include('../new-structure/header',{title:'History-User'})%>
+
+<div class="staff" style="padding-bottom: 60px;">
+<div class="history-user">    
+    <div class="overlay"></div>  
+    <div class="container">
+        <div class="list-user">
+            <div class="title">
+                <h3>History User</h3>
+            </div>
+            <div class="search flex a-center">
+                <input type="search" name="" id="search-txt" placeholder="Enter accountid or Userid">
+                <button class="btn-search">Search</button>
+            </div>
+            <div class="list-user-content">
+                <table>
+                    <tr>
+                        <th>Id</th>
+                        <th>AccountID_1</th>
+                        <th>AccountID_2</th>
+                        <th>time</th>
+                        <th>message</th>
+                        <th>Value</th>
+                        <th>Currency</th>
+                        <th>Action</th>
+                        <th>Status</th>
+                    </tr>
+ 
+                </table>
+            </div>
+            <div class="pagination">
+                <ul class="flex j-center a-center">
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<%- include('../new-structure/footer')%>
+<script>
+
+    // cai nay cua staff đúng k
+    function fetchData(start, limit) {
+
+        $.get("/api/history-user", { start, limit },
+            function (data, textStatus, jqXHR) {
+                $('.list-content-item').remove();
+                if (data && data.rows) {
+                    data.rows.forEach(element => {
+                        $(`
+                        <tr class="list-content-item">
+                            <td>${element.id}</td>
+                            <td>${element.accountId_1}</td>
+                            <td>${element.accountId_2}</td>
+                            <td>${element.time}</td>
+                            <td>${element.message}</td>
+                            <td>${element.value}</td>
+                            <td>${element.currencyType}</td>
+                            <td>${element.action}</td>
+                            <td>
+                                ${element.status == 1 ? 'Ok':'Fail'}
+                            </td>  
+                    </tr>
+                        `).appendTo('.list-user table');
+                    });
+                    // xử li pagination
+
+                    const numpage = (Math.floor(data.count / limit) + (data.count / limit > 0 ? 1 : 0))
+
+                    $('.pagination ul').empty()
+                    for (let i = 0; i < numpage; i++) {
+                        if (i == start) {
+                            $(`<li class="pagination-item active" value=${i}>
+                            <a href="">${i + 1}</a>
+                        </li>`).appendTo(`.pagination ul`);
+                        }
+                        else {
+                            $(`<li class="pagination-item" value=${i}>
+                            <a href="" style="color:#333">${i + 1}</a>
+                        </li>`).appendTo(`.pagination ul`);
+                        }
+                    }
+                }
+            },
+        );
+
+    }  
+
+    $(function () {
+        // get data
+        const limit = 7;
+        fetchData(0, limit);
+
+        // fix css
+        $('header').css('background', '#1b262c');
+        $('.overlay').css('display', 'none')
+
+        // handle event
+
+        // Pagination
+        $(document).on('click', '.pagination-item', function (e) {
+            e.preventDefault();
+            $('.pagination-item').removeClass('active')
+            $(this).addClass('active')
+            const start = $(this).attr('value');
+
+            fetchData(start, 7);
+        });
+        $(document).on('click', '.s-pagination-item', function (e) {
+            e.preventDefault();
+            const start = $(this).attr('value');
+
+            $('.pagination ul').empty();
+            $('.s-pagination-item').removeClass('active')
+            $(this).addClass('active')
+
+            const searchValue = $('#search-txt').val();
+            if (!searchValue) {
+                fetchData(0, 7)
+                return
+            }
+
+            $.get("/api/history-user", { start, id: searchValue,limit },
+                function (data, textStatus, jqXHR) {
+                    $('.list-content-item').remove();
+                    if (data && data.rows) {
+                        data.rows.forEach(element => {
+                            $(`
+                <tr class="list-content-item">
+                <td>${element.id}</td>
+                <td>${element.accountId_1}</td>
+                <td>${element.accountId_2}</td>
+                <td>${element.time}</td>
+                <td>${element.message}</td>
+                <td>${element.value}</td>
+                <td>${element.currencyType}</td>
+                <td>${element.action}</td>
+                <td>
+                   ${element.status == 1 ? 'Ok':'Fail'}
+                </td>  
+            </tr>
+                `).appendTo('.list-user table');
+                        });
+                        // xử li pagination
+
+                        const numpage = (Math.floor(data.count / limit) + (data.count / limit > 0 ? 1 : 0))
+
+                        $('.pagination ul').empty()
+                        for (let i = 0; i < numpage; i++) {
+                            if (i == start) {
+                                $(`<li class="s-pagination-item active " value=${i}>
+                    <a href="">${i + 1}</a>
+                </li>`).appendTo(`.pagination ul`);
+                            }
+                            else {
+                                $(`<li class="s-pagination-item " value=${i}>
+                    <a href="">${i + 1}</a>
+                </li>`).appendTo(`.pagination ul`);
+                            }
+                        }
+                    }
+                },
+            );
+
+        });
+        $(document).on('click', '.btn-search', function (e) {
+            $('.pagination ul').empty();
+            e.preventDefault();
+            const searchValue = $('#search-txt').val();
+            if (!searchValue) {
+                fetchData(0, 7)
+                return
+            }
+            $.get("/api/history-user", { id: searchValue },
+                function (data, textStatus, jqXHR) {
+                    $('.list-content-item').remove();
+                    if (data && data.rows) {
+                        data.rows.forEach(element => {
+                            $(`
+                                <tr class="list-content-item">
+                                <td>${element.id}</td>
+                                <td>${element.accountId_1}</td>
+                                <td>${element.accountId_2}</td>
+                                <td>${element.time}</td>
+                                <td>${element.message}</td>
+                                <td>${element.value}</td>
+                                <td>${element.currencyType}</td>
+                                <td>${element.action}</td>
+                                <td>
+                                    ${element.status == 1 ? 'Ok':'Fail'}
+                                </td>  
+                            </tr>
+                `).appendTo('.list-user table');
+                        });
+                        // xử li pagination
+
+                        const numpage = (Math.floor(data.count / limit) + (data.count / limit > 0 ? 1 : 0))
+
+                        $('.pagination ul').empty()
+                        for (let i = 0; i < numpage; i++) {
+                            if (i == 0) {
+                                $(`<li class="s-pagination-item active " value=${i}>
+                    <a href="">${i + 1}</a>
+                </li>`).appendTo(`.pagination ul`);
+                            }
+                            else {
+                                $(`<li class="s-pagination-item " value=${i}>
+                    <a href="">${i + 1}</a>
+                </li>`).appendTo(`.pagination ul`);
+                            }
+                        }
+                    }
+                },
+            );
+
+        });
+
+
+    });
+</script>

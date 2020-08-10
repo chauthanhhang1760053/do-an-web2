@@ -1,0 +1,36 @@
+<%- include('./../new-structure/header',{title})%>
+<div class="profile" style="margin-top: 65px;padding-top: 0;">
+    <div class="container">
+        <div class="profile-content">
+            <div class="row">
+                <div class="col-xs-2">
+                    <ul class="profile-nav">
+                        <li class="my-info active profile-nav-item">
+                            <a href="/profile">
+                                <i class="fas fa-user-alt"></i>
+                                <p> My Info</p>
+                            </a>
+                        </li>
+                        <li class="my-account profile-nav-item">
+                            <a href="/list-account">
+                                <i class="far fa-credit-card"></i>
+                                <p>My Accounts</p>
+                            </a>
+                        </li>
+                        <li class="history profile-nav-item">
+                            <a href="/history">
+                                <i class="fas fa-history"></i>
+                                <p> History</p>
+                            </a>
+                        </li>
+                        <%if(currentUser.cardIdVerify != 1){%>
+                        <li class="verify-card profile-nav-item">
+                            <a href="/verify-card">
+                                <i class="fas fa-user-check"></i>
+                                <p>Verify</p>
+                            </a>
+                        </li>
+                        <%}%>
+                    </ul>
+                </div>
+                <div class="col-xs-10 profile-right">

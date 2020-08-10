@@ -1,0 +1,201 @@
+<%- include('./profile-structure/header',{title:'My Profile'})%>
+<div class="pop-up">
+
+</div>
+
+
+<div class="personal-detail profile-right-content ">
+    <div class="title">
+        <h3>Personal Information</h3>
+    </div>
+    <div class="personal-detail-item">
+        <div class="flex a-center">
+            <label for="">Fullname</label>
+            <input type=" text" placeholder="Enter your name" id="fullname">
+        </div>
+        <div class="flex a-center">
+            <label for="">Username</label>
+            <input type="text" placeholder="Enter your username" id="username" disabled>
+        </div>
+        <div class="flex a-center">
+            <label for="">Email</label>
+            <input type="email" placeholder="Enter your email" id="email">
+        </div>
+
+        <div class="flex a-center">
+            <label for="">Address</label>
+            <input type="text" placeholder="Enter your address" id="address">
+        </div>
+        <div class="flex a-center">
+            <label for="">Birth</label>
+            <input type="date" value="2020-07-24" id="birth">
+        </div>
+        <div class="flex a-center" style="margin-top: 30px;">
+            <label for=""></label>
+            <button class="btn-update" style="background-color:#4b5d67 ; cursor: pointer;">UPDATE</button>
+            <button class="btn-change-password" style="background-color: #1b6ca8;border: none;cursor: pointer;">CHANGE
+                PASSWORD</button>
+        </div>
+    </div>
+</div>
+
+
+<%- include('./profile-structure/footer')%>
+<script>
+    $(function () {
+
+        $.get("/api/info",
+            function (data, textStatus, jqXHR) {
+                console.log(data)
+                if (data) {
+
+                    $('#fullname').val(data.fullName);
+                    $('#email').val(data.email);
+                    $('#username').val(data.username);
+                    $('#address').val(data.address);
+                    $('#birth').val(data.birth);
+                }
+            },
+        );
+        $('.btn-update').click(function (e) {
+            e.preventDefault();
+            const fullName = $('#fullname').val()
+            const birth = new Date($('#birth').val()).toISOString().slice(0, 10)
+            const address = $('#address').val()
+            const email = $('#email').val()
+            if (!fullName || !birth || !address || !email) {
+                alert('Vui lòng điền đầy đủ nội dung')
+                return;
+            }
+            $.post("/api/update-self", { fullName, birth, address, email },
+                function (data, textStatus, jqXHR) {
+                    console.log(data)
+                    if (data) {
+                        if (data == "ok") {
+                            alert('Cập nhật thành công')
+                            return;
+                        }
+                        if (data == "email used") {
+                            alert('Email đã có người dùng')
+                            return;
+                        }
+                        if (data == "cardId used") {
+                            alert('Cmnd đã có người dùng')
+                            return;
+                        }
+                        alert('Đã xảy ra lỗi. Vui lòng đăng nhập lại')
+                        $.get("/api/logout", data,
+                            function (data, textStatus, jqXHR) {
+                                if (data) {
+                                    $(location).attr('href', '/login')
+                                }
+                            },
+
+                        );
+
+                        return;
+                    }
+                },
+            );
+
+        });
+
+
+        $('.btn-change-password').click(function (e) {
+            e.preventDefault();
+            $('.login').fadeOut();
+            $(`<div class="login"
+    style="position: fixed;width: 100vw;height: 100vh;top: 0;left: 0; z-index: 9999;background: rgba(0,0,0,0.8);">
+    <div class="container">
+        <div class="modal" style="margin-top: 200px;">
+            <form action="">
+                <div class="form-title flex a-center j-between">
+                    <h3>Change Password</h3>
+                    <a href="" id="close" class="close" style="text-decoration: none;"><i class="far fa-times-circle"
+                            style="font-size: 24px;"></i></a>
+                </div>
+                <div class="form-group">
+                    <label for=""><span style="color: red;">*</span> Password</label>
+                    <input type="password" placeholder="" id="password-old">
+                </div>
+                <div class="form-group">
+                    <label for=""><span style="color: red;">*</span> New-Password</label>
+                    <input type="password" placeholder="" id="password">
+                </div>
+                <div class="form-group">
+                    <label for=""><span style="color: red;">*</span> Re-Password</label>
+                    <input type="password" placeholder="" id="password-retype">
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-submit"><i class="fas fa-lock-open"></i> Change</button>
+                </div>
+                <div class="form-error" style="margin-bottom:-10px">
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>`).prependTo('.pop-up');
+        })
+
+        $(document).on('click', '.btn-submit', function (e) {
+            e.preventDefault();
+            const password_old = $('#password-old').val()
+            const password = $('#password').val()
+            const password_retype = $('#password-retype').val()
+
+            if (!password_old || !password || !password_retype) {
+                AddError('Vui lòng điền đầy đủ thông tin')
+                return;
+            }
+            if (password != password_retype) {
+                AddError('Mật khẩu xác thực không trùng khớp')
+                return;
+            }
+            $.post("/api/change-password", { password_old, password, password_retype },
+                function (data, textStatus, jqXHR) {
+                    if (data) {
+                        if (data == "ok") {
+                            alert('Đổi mật khẩu thành công')
+                            $('.login').fadeOut(300)
+                            return;
+                        }
+                        if (data == "error") {
+                            alert('Đã xảy ra lỗi. Vui lòng đăng nhập lại')
+                            $.get("/api/logout", data,
+                                function (data, textStatus, jqXHR) {
+                                    if (data) {
+                                        $(location).attr('href', '/login')
+                                    }
+                                },
+
+                            );
+                            return;
+                        }
+                        if (data == "wrong password") {
+                            AddError('Mật khẩu cũ không hợp lệ')
+                            return;
+                        }
+                        alert('Đã xảy ra lỗi. Vui lòng đăng nhập lại')
+                        $.get("/api/logout", data,
+                            function (data, textStatus, jqXHR) {
+                                if (data) {
+                                    $(location).attr('href', '/login')
+                                }
+                            },
+
+                        );
+
+                    }
+                    else {
+                        alert('Đã xảy ra lỗi');
+                        return;
+                    }
+                },
+            );
+
+
+        });
+
+    });
+</script>
