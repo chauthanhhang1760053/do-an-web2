@@ -11,6 +11,6 @@ module.exports.exchange_currency = function(value, currencyType_from, currencyTy
 		newValue = newValue * 23000;
 
 		return newValue;
-	} 
+	}  
 	return value;
 };
