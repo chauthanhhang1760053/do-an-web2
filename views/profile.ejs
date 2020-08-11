@@ -177,12 +177,12 @@
                             return;
                         } 
                         alert('Đã xảy ra lỗi. Vui lòng đăng nhập lại')
-                        $.get("/api/logout", data,
+                        $.get("/api/logout", data,  
                             function (data, textStatus, jqXHR) {
                                 if (data) {
                                     $(location).attr('href', '/login')
                                 }
-                            },
+                            }, 
 
                         );
 
