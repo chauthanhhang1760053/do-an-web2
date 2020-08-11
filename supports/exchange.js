@@ -10,7 +10,7 @@ module.exports.exchange_currency = function(value, currencyType_from, currencyTy
 		var newValue = parseFloat(value);
 		newValue = newValue * 23000;
 
-		return newValue;
-	}  
+		return newValue; 
+	}   
 	return value;
 };

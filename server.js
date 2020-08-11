@@ -48,9 +48,9 @@ app.use('/list-user', require('./routes/list-user'));
 app.use('/history', require('./routes/history'));
 app.use('/history-user', require('./routes/history-user'));
 app.use('/list-account', require('./routes/list-account'));
-app.use('/about', require('./routes/about'));
+app.use('/about', require('./routes/about')); 
 app.use('/privacy', require('./routes/privacy'));
-
+ 
 db
 	.sync()
 	.then(function() {

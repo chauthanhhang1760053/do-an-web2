@@ -7,7 +7,7 @@ class card extends Model {}
 
 card.init(
 	{
-		cardId: {
+		cardId: { 
 			type: Sequelize.STRING,
 			allowNull: true,
 			defaultValue: '',

@@ -6,7 +6,7 @@ const moment = require('moment');
 class account extends Model {
 	static async calculateProfitAndDaysReached(theAccount) {
 		//default is for 12 months of term
-		var profitPercent = [ 0.03, 0.05 ];
+		var profitPercent = [ 0.03, 0.05 ]; 
 		if (theAccount.term == 24) profitPercent = [ 0.04, 0.06 ];
 		else if (theAccount.term == 36) profitPercent = [ 0.05, 0.07 ];
 
