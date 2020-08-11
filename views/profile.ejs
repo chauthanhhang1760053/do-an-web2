@@ -175,7 +175,7 @@
                         if (data == "wrong password") {
                             AddError('Mật khẩu cũ không hợp lệ')
                             return;
-                        }
+                        } 
                         alert('Đã xảy ra lỗi. Vui lòng đăng nhập lại')
                         $.get("/api/logout", data,
                             function (data, textStatus, jqXHR) {
