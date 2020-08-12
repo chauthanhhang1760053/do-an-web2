@@ -14,7 +14,7 @@
             <input type=" text" placeholder="Enter your name" id="fullname">
         </div>
         <div class="flex a-center">
-            <label for="">Username</label> 
+            <label for="">Username</label>
             <input type="text" placeholder="Enter your username" id="username" disabled>
         </div>
         <div class="flex a-center">
@@ -175,14 +175,14 @@
                         if (data == "wrong password") {
                             AddError('Mật khẩu cũ không hợp lệ')
                             return;
-                        } 
+                        }
                         alert('Đã xảy ra lỗi. Vui lòng đăng nhập lại')
-                        $.get("/api/logout", data,  
+                        $.get("/api/logout", data,
                             function (data, textStatus, jqXHR) {
                                 if (data) {
                                     $(location).attr('href', '/login')
                                 }
-                            }, 
+                            },
 
                         );
 

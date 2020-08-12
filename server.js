@@ -16,7 +16,7 @@ app.use(
 		keys: [ 'nkhh' ],
 		maxAge: 24 * 60 * 60 * 1000 //24h
 	})
-); 
+);
 
 app.use(require('./middleware/authentication').localCurrentUser);
 
@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.json());
 
-app.use(cors()); 
+app.use(cors());
 app.use('/api', require('./api'));
 
 //set layout
@@ -48,9 +48,9 @@ app.use('/list-user', require('./routes/list-user'));
 app.use('/history', require('./routes/history'));
 app.use('/history-user', require('./routes/history-user'));
 app.use('/list-account', require('./routes/list-account'));
-app.use('/about', require('./routes/about')); 
+app.use('/about', require('./routes/about'));
 app.use('/privacy', require('./routes/privacy'));
- 
+
 db
 	.sync()
 	.then(function() {

@@ -17,7 +17,7 @@
                 <div class="form-group flex a-center j-between" style="text-align: right;margin-top: 10px;">
                     <a href="/forget-password">Forgot password?</a>
                     <a href="/register">Don't have an account?</a>
-                </div> 
+                </div>
 
                 <div class="form-actions">
                     <button class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Login</button>
@@ -54,8 +54,8 @@
                         }
                         if (data == 'fail') {
                             AddError('Đăng nhập thất bại');
-                            return 
-                        } 
+                            return
+                        }
                         if (data == 'need logout') {
                             $.get("/api/logout",
                                 function (data, textStatus, jqXHR) {
